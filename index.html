@@ -4,56 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creator Resource Hub</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-anim { transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
+        .card-anim:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 min-h-screen flex flex-col font-sans">
 
-    <header>
-        <h1>Creator Resource Hub</h1>
-        <p>Your ultimate collection of freebies, guides, and templates.</p>
+    <!-- Header Section -->
+    <header class="gradient-bg text-white py-12 px-4 shadow-lg text-center">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-3">Creator Resource Hub</h1>
+        <p class="text-lg md:text-xl text-purple-100 max-w-2xl mx-auto font-medium">
+            A curated database of tools, guides, templates, and freebies designed to scale your business.
+        </p>
     </header>
 
-    <main>
-        <div id="resource-container" class="resource-grid">
-            <p class="loading">Loading resources from the hub...</p>
+    <!-- Main Content Area -->
+    <main class="flex-grow container mx-auto px-4 py-10 max-w-6xl">
+        
+        <!-- Category Filters -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10" id="filter-container">
+            <button onclick="filterResources('All')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-purple-600 text-white shadow-md transition">
+                All Resources
+            </button>
+            <!-- Other categories are generated dynamically from Airtable data -->
         </div>
+
+        <!-- Resources Grid -->
+        <div id="loading-spinner" class="text-center py-20">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
+            <p class="text-gray-500 mt-4 font-medium">Fetching resources from the database...</p>
+        </div>
+        
+        <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+            <!-- Dynamic cards inject here -->
+        </div>
+
+        <!-- Submission Form Section -->
+        <section class="mt-20 max-w-xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-extrabold text-gray-800">Submit a New Resource</h2>
+                <p class="text-sm text-gray-500 mt-1">Found something awesome? Share it with the community!</p>
+            </div>
+
+            <!-- LIVE BASIN FORM PIPELINE -->
+            <form action="https://usebasin.com/f/5ecc768ff3c1" method="POST" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Resource Name</label>
+                    <input type="text" name="Resource Name" required placeholder="e.g., Ultimate Notion Planner" 
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Category</label>
+                    <select name="Category" required 
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition bg-white">
+                        <option value="">Select a category...</option>
+                        <option value="Freebie">Freebie</option>
+                        <option value="Notion Template">Notion Template</option>
+                        <option value="Resource List">Resource List</option>
+                        <option value="Premium Guide">Premium Guide</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Access Link</label>
+                    <input type="url" name="Access Link" required placeholder="https://..." 
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Description</label>
+                    <textarea name="Description" rows="3" required placeholder="Briefly describe what this resource does..." 
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition resize-none"></textarea>
+                </div>
+
+                <button type="submit" 
+                    class="w-full gradient-bg text-white font-bold py-3 rounded-lg shadow-md hover:opacity-90 transform active:scale-95 transition mt-2">
+                    Submit Resource
+                </button>
+            </form>
+        </section>
     </main>
 
-    <section class="submission-section" style="max-width: 600px; margin: 4rem auto; padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); font-family: sans-serif;">
-        <h2>Submit a New Resource</h2>
-        <p style="color: #666; margin-bottom: 1.5rem;">Are you a creator with an asset to share? Submit it below to add it to our registry.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm border-t border-gray-700 mt-20">
+        <p>&copy; 2026 Creator Resource Hub. Headless architecture powered by Airtable & Basin.</p>
+    </footer>
+
+    <!-- Frontend Scripting Architecture -->
+    <script>
+        // Headless API Credentials
+        const AIRTABLE_BASE_ID = 'app2dNCzkf61VdNKa';
+        const AIRTABLE_TABLE_NAME = 'Resources';
+        const AIRTABLE_READ_TOKEN = 'pat0H5C38TjVepu9k.9df6ff090cfca0cb83a48ecbf25aed30219db15cbfbfdf4d3ea2d3e230a1bfb8';
         
-        <form action="https://usebasin.com/f/5ecc768ff3c1" method="POST">
+        const AIRTABLE_URL = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}?view=Grid%20view`;
+
+        let allResources = [];
+
+        // Fetch dynamic rows from Airtable API
+        async function fetchResources() {
+            try {
+                const response = await fetch(AIRTABLE_URL, {
+                    headers: { Authorization: `Bearer ${AIRTABLE_READ_TOKEN}` }
+                });
+                const data = await response.json();
+                
+                // Format Airtable payloads clean
+                allResources = data.records
+                    .map(record => ({
+                        id: record.id,
+                        name: record.fields['Resource Name'] || '',
+                        category: record.fields['Category'] || 'Uncategorized',
+                        description: record.fields['Description'] || '',
+                        link: record.fields['Access Link'] || '#',
+                        image: record.fields['Cover Image'] && record.fields['Cover Image'][0] ? record.fields['Cover Image'][0].url : 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60',
+                        status: record.fields['Status'] || 'Draft'
+                    }))
+                    // Dynamic client security: only display rows explicitly labeled 'Published'
+                    .filter(item => item.status === 'Published');
+
+                buildCategoryFilters();
+                displayCards(allResources);
+                
+                document.getElementById('loading-spinner').classList.add('hidden');
+                document.getElementById('resources-grid').classList.remove('hidden');
+            } catch (error) {
+                console.error("Database Connection Failure:", error);
+                document.getElementById('loading-spinner').innerHTML = `<p class="text-red-500 font-bold">Failed to load platform assets. Please verify database sync.</p>`;
+            }
+        }
+
+        // Generate dynamic category filtering pills
+        function buildCategoryFilters() {
+            const container = document.getElementById('filter-container');
+            const categories = ['All', ...new Set(allResources.map(r => r.category))];
             
-            <div style="margin-bottom: 1.2rem;">
-                <label style="display: block; font-weight: bold; margin-bottom: 0.5rem;">Resource Name</label>
-                <input type="text" name="Resource Name" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
-            </div>
+            container.innerHTML = '';
+            categories.forEach(cat => {
+                const isAll = cat === 'All';
+                const btn = document.createElement('button');
+                btn.className = `filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition shadow-sm ${isAll ? 'bg-purple-600 text-white shadow-md' : 'bg-white text-gray-600 hover:bg-gray-100'}`;
+                btn.textContent = cat === 'All' ? 'All Resources' : cat;
+                btn.onclick = () => filterResources(cat, btn);
+                container.appendChild(btn);
+            });
+        }
 
-            <div style="margin-bottom: 1.2rem;">
-                <label style="display: block; font-weight: bold; margin-bottom: 0.5rem;">Category</label>
-                <select name="Category" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; background: white;">
-                    <option value="Freebie">Freebie</option>
-                    <option value="Premium Guide">Premium Guide</option>
-                    <option value="Notion Template">Notion Template</option>
-                    <option value="Resource List">Resource List</option>
-                </select>
-            </div>
+        // Render mapped database assets into HTML template layouts
+        function displayCards(items) {
+            const grid = document.getElementById('resources-grid');
+            grid.innerHTML = '';
 
-            <div style="margin-bottom: 1.2rem;">
-                <label style="display: block; font-weight: bold; margin-bottom: 0.5rem;">Description</label>
-                <textarea name="Description" required rows="3" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: vertical;"></textarea>
-            </div>
+            if(items.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10 font-medium">No published assets found in this view.</p>`;
+                return;
+            }
 
-            <div style="margin-bottom: 1.5rem;">
-                <label style="display: block; font-weight: bold; margin-bottom: 0.5rem;">Access Link (URL)</label>
-                <input type="url" name="Access Link" required style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
-            </div>
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden card-anim flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="h-48 w-full bg-gray-200 bg-cover bg-center" style="background-image: url('${item.image}')"></div>
+                        <div class="p-5">
+                            <span class="inline-block text-xs font-black tracking-wider uppercase bg-purple-100 text-purple-700 px-2.5 py-1 rounded-md mb-3">${item.category}</span>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">${item.name}</h3>
+                            <p class="text-gray-600 text-sm line-clamp-3">${item.description}</p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2">
+                        <a href="${item.link}" target="_blank" class="block text-center bg-gray-900 hover:bg-purple-700 text-white text-sm font-bold py-2.5 px-4 rounded-lg shadow-sm transition">
+                            Access Resource
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
 
-            <button type="submit" style="width: 100%; background: #FF007A; color: white; border: none; padding: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 1rem;">Submit Resource</button>
-        </form>
-    </section>
+        // Dynamic view filtering mechanisms
+        function filterResources(category, activeBtn) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-gray-600 hover:bg-gray-100 shadow-sm transition";
+            });
+            
+            if(activeBtn) {
+                activeBtn.className = "filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-purple-600 text-white shadow-md transition";
+            } else {
+                document.getElementById('filter-container').firstElementChild.className = "filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-purple-600 text-white shadow-md transition";
+            }
 
-    <script src="app.js"></script>
+            if (category === 'All') {
+                displayCards(allResources);
+            } else {
+                const filtered = allResources.filter(r => r.category === category);
+                displayCards(filtered);
+            }
+        }
+
+        // Self-executing initializer routine
+        document.addEventListener('DOMContentLoaded', fetchResources);
+    </script>
 </body>
 </html>
