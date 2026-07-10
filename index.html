@@ -3,197 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creator Resource Hub</title>
+    <title>The Ultimate Creator Storefront Tour</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Load Lottie Player for high-quality vector animations -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <style>
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-bg { background: linear-gradient(135deg, #743ad5 0%, #d53a9d 100%); }
         .card-anim { transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
         .card-anim:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col font-sans">
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col font-sans">
 
-    <!-- Header Section -->
-    <header class="gradient-bg text-white py-12 px-4 shadow-lg text-center">
-        <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-3">Creator Resource Hub</h1>
-        <p class="text-lg md:text-xl text-purple-100 max-w-2xl mx-auto font-medium">
-            A curated database of tools, guides, templates, and freebies designed to scale your business.
+    <!-- Interactive Tour Header -->
+    <header class="gradient-bg text-white py-16 px-4 shadow-xl text-center relative overflow-hidden flex flex-col items-center">
+        <div class="absolute top-2 right-4 text-xs opacity-50">Virtual Tour Mode: ACTIVE</div>
+        
+        <!-- Premium Animated Celebration Icon (Black Woman Celebrating Vector Asset) -->
+        <div class="w-40 h-40 mb-2">
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m99z69fp.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4">The Creator Storefront Tour</h1>
+        <p class="text-lg md:text-xl text-purple-100 max-w-3xl mx-auto font-medium">
+            Stop losing leads to cluttered links. Take a virtual walk through the automation backend built to scale your digital empire.
         </p>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow container mx-auto px-4 py-10 max-w-6xl">
+    <!-- Virtual Tour Control Dashboard -->
+    <main class="flex-grow container mx-auto px-4 py-10 max-w-5xl">
         
-        <!-- Category Filters -->
-        <div class="flex flex-wrap justify-center gap-3 mb-10" id="filter-container">
-            <button onclick="filterResources('All')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-purple-600 text-white shadow-md transition">
-                All Resources
-            </button>
-        </div>
-
-        <!-- Resources Grid -->
-        <div id="loading-spinner" class="text-center py-20">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
-            <p class="text-gray-500 mt-4 font-medium">Fetching resources from the database...</p>
-        </div>
-        
-        <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
-            <!-- Dynamic cards inject here -->
-        </div>
-
-        <!-- Submission Form Section -->
-        <section class="mt-20 max-w-xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-extrabold text-gray-800">Submit a New Resource</h2>
-                <p class="text-sm text-gray-500 mt-1">Found something awesome? Share it with the community!</p>
-            </div>
-
-            <!-- LIVE BASIN FORM PIPELINE -->
-            <form action="https://usebasin.com/f/5ecc768ff3c1" method="POST" class="space-y-5">
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Resource Name</label>
-                    <input type="text" name="Resource Name" required placeholder="e.g., Ultimate Notion Planner" 
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Category</label>
-                    <select name="Category" required 
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition bg-white">
-                        <option value="">Select a category...</option>
-                        <option value="Freebie">Freebie</option>
-                        <option value="Notion Template">Notion Template</option>
-                        <option value="Resource List">Resource List</option>
-                        <option value="Premium Guide">Premium Guide</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Access Link</label>
-                    <input type="url" name="Access Link" required placeholder="https://..." 
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Description</label>
-                    <textarea name="Description" rows="3" required placeholder="Briefly describe what this resource does..." 
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition resize-none"></textarea>
-                </div>
-
-                <button type="submit" 
-                    class="w-full gradient-bg text-white font-bold py-3 rounded-lg shadow-md hover:opacity-90 transform active:scale-95 transition mt-2">
-                    Submit Resource
+        <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 text-center mb-12">
+            <h2 class="text-xl font-bold mb-4 text-purple-700">Step Inside the Tour Rooms:</h2>
+            
+            <!-- Room Navigation Pills -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="switchRoom('room1')" id="btn-room1" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-600 text-white shadow-lg transition">
+                    🚪 Room 1: The Link-In-Bio Graveyard
                 </button>
-            </form>
+                <button onclick="switchRoom('room2')" id="btn-room2" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 transition">
+                    🚪 Room 2: The Ghost Town Backend
+                </button>
+                <button onclick="switchRoom('room3')" id="btn-room3" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 transition">
+                    🚪 Room 3: The Platform Rental Trap
+                </button>
+            </div>
+        </div>
+
+        <!-- Dynamic Tour Content Wrapper -->
+        <div id="tour-content" class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl min-h-[350px] flex flex-col justify-between">
+            <!-- Room content dynamically injects here -->
+        </div>
+
+        <!-- Master Call To Action Section -->
+        <section class="mt-16 text-center max-w-2xl mx-auto bg-gradient-to-r from-purple-900 to-indigo-900 rounded-3xl p-10 border border-purple-500 shadow-2xl flex flex-col items-center">
+            <div class="w-28 h-28 mb-2">
+                <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m99z69fp.json" background="transparent" speed="1.2" loop autoplay></lottie-player>
+            </div>
+            <h2 class="text-3xl font-extrabold text-white mb-2">Ready to own your system?</h2>
+            <p class="text-purple-200 text-sm mb-6">Get the exact headless website script layout, the plug-and-play Airtable architecture master template, and the step-by-step SOP to launch your own automated hub in 15 minutes.</p>
+            
+            <a href="https://your-payment-link.com" target="_blank" 
+                class="inline-block w-full sm:w-auto gradient-bg text-white font-black text-lg px-8 py-4 rounded-xl shadow-lg hover:opacity-95 transform active:scale-95 transition tracking-wide">
+                🔥 GET THE TEMPLATE + SOP NOW ($49)
+            </a>
         </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm border-t border-gray-700 mt-20">
-        <p>&copy; 2026 Creator Resource Hub. Headless architecture powered by Airtable & Basin.</p>
+    <footer class="bg-gray-900 text-gray-400 py-6 text-center text-xs border-t border-gray-800 mt-20">
+        <p>&copy; 2026 Creator Optimization Systems. Demo Architecture Engaged.</p>
     </footer>
 
-    <!-- Frontend Scripting Architecture -->
+    <!-- Interactive Sales Tour Engine -->
     <script>
-        // Directly target the open read-only data layout of your shared view link
-        const AIRTABLE_URL = "https://api.airtable.com/v0/app2dNCzkf61VdNKa/Resources?view=shrSo0zzns0lVEy8c";
-
-        let allResources = [];
-
-        async function fetchResources() {
-            try {
-                // Bypassing authorization tokens entirely using public view parsing
-                const response = await fetch(AIRTABLE_URL, {
-                    headers: {
-                        "Authorization": "Bearer pat0H5C38TjVepu9k.9df6ff090cfca0cb83a48ecbf25aed30219db15cbfbfdf4d3ea2d3e230a1bfb8"
-                    }
-                });
-                const data = await response.json();
-                
-                if (!data.records) {
-                    // Fallback proxy layout if API limits are hit on regular proxy routing
-                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent('https://airtable.com/embed/shrSo0zzns0lVEy8c')}`;
-                    const embedResp = await fetch(proxyUrl);
-                    const embedData = await embedResp.json();
-                    console.log("Alternative public network payload synchronized.");
-                }
-
-                allResources = (data.records || []).map(record => ({
-                    id: record.id,
-                    name: record.fields['Resource Name'] || '',
-                    category: record.fields['Category'] || 'Uncategorized',
-                    description: record.fields['Description'] || '',
-                    link: record.fields['Access Link'] || '#',
-                    image: record.fields['Cover Image'] && record.fields['Cover Image'][0] ? record.fields['Cover Image'][0].url : 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60',
-                    status: record.fields['Status'] || 'Draft'
-                })).filter(item => item.status === 'Published');
-
-                buildCategoryFilters();
-                displayCards(allResources);
-                
-                document.getElementById('loading-spinner').classList.add('hidden');
-                document.getElementById('resources-grid').classList.remove('hidden');
-            } catch (error) {
-                console.error("Connection handled:", error);
-                // Graceful fallback to render cleanly even if completely offline
-                document.getElementById('loading-spinner').innerHTML = `
-                    <p class="text-purple-700 font-bold mb-2">Connected directly to form gateway!</p>
-                    <p class="text-gray-500 text-sm">Submit your new resources below to update live rows.</p>
-                `;
-            }
-        }
-
-        function buildCategoryFilters() {
-            const container = document.getElementById('filter-container');
-            const categories = ['All', ...new Set(allResources.map(r => r.category))];
-            container.innerHTML = '';
-            categories.forEach(cat => {
-                const isAll = cat === 'All';
-                const btn = document.createElement('button');
-                btn.className = `filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition shadow-sm ${isAll ? 'bg-purple-600 text-white shadow-md' : 'bg-white text-gray-600 hover:bg-gray-100'}`;
-                btn.textContent = cat;
-                btn.onclick = () => filterResources(cat, btn);
-                container.appendChild(btn);
-            });
-        }
-
-        function displayCards(items) {
-            const grid = document.getElementById('resources-grid');
-            grid.innerHTML = '';
-            if(items.length === 0) {
-                grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10 font-medium">Add records and mark their Status as "Published" in Airtable to display them here.</p>`;
-                return;
-            }
-            items.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden card-anim flex flex-col justify-between";
-                card.innerHTML = `
-                    <div>
-                        <div class="h-48 w-full bg-gray-200 bg-cover bg-center" style="background-image: url('${item.image}')"></div>
-                        <div class="p-5">
-                            <span class="inline-block text-xs font-black tracking-wider uppercase bg-purple-100 text-purple-700 px-2.5 py-1 rounded-md mb-3">${item.category}</span>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">${item.name}</h3>
-                            <p class="text-gray-600 text-sm line-clamp-3">${item.description}</p>
+        const rooms = {
+            room1: {
+                title: "🪦 Room 1: The 'Link-In-Bio' Graveyard",
+                painPoint: "Are you still paying monthly fees for a boring wall of blocky buttons that dilutes your personal brand?",
+                visual: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
+                        <div class="bg-red-50 p-6 rounded-2xl border border-red-200 opacity-70">
+                            <p class="text-xs uppercase font-black text-red-600 mb-3">The Standard Way ❌</p>
+                            <div class="space-y-2">
+                                <div class="w-full bg-red-100 text-red-700 py-3 text-center rounded-lg text-xs font-bold">Cluttered Button #1</div>
+                                <div class="w-full bg-red-100 text-red-700 py-3 text-center rounded-lg text-xs font-bold">Expired Freebie Link</div>
+                                <div class="w-full bg-red-100 text-red-700 py-3 text-center rounded-lg text-xs font-bold">Unbranded Profile</div>
+                            </div>
+                        </div>
+                        <div class="bg-purple-50 p-6 rounded-2xl border border-purple-200">
+                            <p class="text-xs uppercase font-black text-purple-600 mb-3">Live Dynamic Hub Framework ✅</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="bg-white p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-100">🎨 Templates</div>
+                                <div class="bg-white p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-100">📚 Notion Guides</div>
+                                <div class="bg-white p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-100">💡 Free Resources</div>
+                                <div class="bg-white p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-100">🛠️ Mini-Courses</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="px-5 pb-5 pt-2">
-                        <a href="${item.link}" target="_blank" class="block text-center bg-gray-900 hover:bg-purple-700 text-white text-sm font-bold py-2.5 px-4 rounded-lg shadow-sm transition">Access Resource</a>
+                `,
+                takeaway: "Your assets deserve a clean, searchable marketplace view that maintains audience focus instantly."
+            },
+            room2: {
+                title: "👻 Room 2: The Ghost Town Backend",
+                painPoint: "When a user requests your freebie, do you manually handle delivery or blindly cross your fingers hoping it didn't break?",
+                visual: `
+                    <div class="bg-gray-900 rounded-2xl p-6 text-center my-6 shadow-inner">
+                        <p class="text-xs text-purple-400 uppercase font-black tracking-widest mb-4">Your Automated lead Data Engine</p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs font-mono text-white">
+                            <div class="bg-purple-900/60 p-3 rounded-xl border border-purple-500">💻 Site Interface</div>
+                            <span class="text-purple-400 font-bold">➔</span>
+                            <div class="bg-indigo-900/60 p-3 rounded-xl border border-indigo-500">📬 Ingestion Gateway</div>
+                            <span class="text-purple-400 font-bold">➔</span>
+                            <div class="bg-pink-900/60 p-3 rounded-xl border border-pink-500">📊 Airtable Control Base</div>
+                        </div>
                     </div>
-                `;
-                grid.appendChild(card);
+                `,
+                takeaway: "Capture leads securely in real-time, instantly sync records to spreadsheets, and fire off deliveries completely on autopilot while you sleep."
+            },
+            room3: {
+                title: "🫥 Room 3: The 'Platform Rental' Trap",
+                painPoint: "If your link provider raises prices or crashes during a viral launch, how much revenue falls through the cracks?",
+                visual: `
+                    <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-900 to-indigo-900 border border-purple-500 my-6 text-white shadow-lg">
+                        <div class="flex justify-between items-center text-sm mb-4 border-b border-purple-400 pb-2">
+                            <span class="font-bold">Independent Architecture Metrics:</span>
+                            <span class="bg-green-400 text-gray-900 text-xs px-2.5 py-0.5 rounded-full font-black">100% Owned</span>
+                        </div>
+                        <ul class="text-xs space-y-3">
+                            <li class="flex items-center gap-2">✨ Zero hosting fees or recurring platform overhead</li>
+                            <li class="flex items-center gap-2">✨ Bulletproof ownership—your audience lists stay yours</li>
+                            <li class="flex items-center gap-2">✨ Complete design freedom with no third-party branding branding</li>
+                        </ul>
+                    </div>
+                `,
+                takeaway: "Stop renting your business infrastructure. Own your code, secure your asset tracking, and optimize your margins."
+            }
+        };
+
+        function switchRoom(roomId) {
+            document.querySelectorAll('.room-btn').forEach(btn => {
+                btn.className = "room-btn px-6 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 transition";
             });
+            
+            document.getElementById(`btn-${roomId}`).className = "room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-600 text-white shadow-lg transition";
+            
+            const data = rooms[roomId];
+            const contentContainer = document.getElementById('tour-content');
+            
+            contentContainer.innerHTML = `
+                <div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">${data.title}</h3>
+                    <p class="text-purple-600 italic text-sm font-medium mb-4">"${data.painPoint}"</p>
+                    ${data.visual}
+                </div>
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    <p class="text-gray-700 text-sm font-bold flex items-center gap-2">
+                        <span class="text-purple-600">🎯 Solution:</span> ${data.takeaway}
+                    </p>
+                </div>
+            `;
         }
 
-        function filterResources(category, activeBtn) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.className = "filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-gray-600 hover:bg-gray-100 shadow-sm transition";
-            });
-            if(activeBtn) activeBtn.className = "filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-purple-600 text-white shadow-md transition";
-            if (category === 'All') { displayCards(allResources); } 
-            else { displayCards(allResources.filter(r => r.category === category)); }
-        }
-
-        document.addEventListener('DOMContentLoaded', fetchResources);
+        document.addEventListener('DOMContentLoaded', () => {
+            switchRoom('room1');
+        });
     </script>
 </body>
 </html>
