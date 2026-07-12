@@ -1,34 +1,51 @@
+/* =========================================================================
+   🎨 MASTER DESIGN COMPONENT FRAMEWORK (style.css)
+   Clean, modern architectural layout system for headless storefront builds.
+   ========================================================================= */
+
 :root {
-    --primary: #FF007A; /* Bold accent color for your creator brand */
-    --bg: #FAFAFA;
-    --card-bg: #FFFFFF;
-    --text: #2D2D2D;
-    --muted: #666666;
+    --primary: #FF007A;          /* Bold accent color for your creator brand */
+    --primary-hover: #D00063;    /* Hover action color match */
+    --bg: #FAFAFA;               /* Canvas backdrop color */
+    --card-bg: #FFFFFF;          /* Pure white block for crisp contrast card boundaries */
+    --text: #2D2D2D;             /* Deep neutral charcoal text for high-contrast reading */
+    --muted: #666666;            /* Secondary typography accents & meta details */
 }
 
+/* --- Document Canvas Overrides --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: var(--bg);
     color: var(--text);
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* --- Modular Layout Sections --- */
 header {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
     background: #ffffff;
     border-bottom: 1px solid #eaeaea;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
 }
 
 header p {
     color: var(--muted);
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
+    font-size: 1.125rem;
+    max-w: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 main {
@@ -37,7 +54,7 @@ main {
     padding: 0 1.5rem;
 }
 
-/* Pristine Grid Setup */
+/* --- Pristine Automated Dynamic Responsive Grid --- */
 .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -49,28 +66,37 @@ main {
     text-align: center;
     color: var(--muted);
     font-size: 1.2rem;
+    padding: 3rem 0;
+    font-weight: 500;
 }
 
-/* Resource Card Styles */
+/* --- Resource Card Layout Architecture --- */
 .card {
     background: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
 }
 
-.card:hover {
-    transform: translateY(-4px);
+/* Custom interactive animation state matrix */
+.card-anim {
+    transition: transform 0.3s cubic-bezier(.25, .8, .25, 1), 
+                box-shadow 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.card-anim:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .card-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    background-color: #eee;
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+    flex-shrink: 0; /* Prevents compression layouts if text content expands */
 }
 
 .card-content {
@@ -80,32 +106,37 @@ main {
     flex-grow: 1;
 }
 
+/* --- Dynamic Structural Badges --- */
 .badge {
     align-self: flex-start;
     padding: 0.25rem 0.75rem;
     border-radius: 50px;
     font-size: 0.75rem;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 1rem;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-/* Dynamic colors based on your Airtable options */
+/* Categorized Badge Visual Matrices (Matches option outputs from Airtable) */
 .badge-freebie { background: #E3FCEF; color: #006644; }
 .badge-notion-template { background: #DEEBFF; color: #0052CC; }
 .badge-premium-guide { background: #EAE6FF; color: #403294; }
 .badge-resource-list { background: #E2F0D9; color: #385723; }
 
+/* --- Typography & Actions Inside Cards --- */
 .card-title {
     margin: 0 0 0.5rem 0;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.25;
 }
 
 .card-description {
     color: var(--muted);
     font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
     flex-grow: 1;
 }
 
@@ -113,14 +144,19 @@ main {
     display: block;
     text-align: center;
     background: var(--primary);
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
-    padding: 0.75rem;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background 0.2s;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .card-btn:hover {
-    background: #D00063;
+    background: var(--primary-hover);
+}
+
+.card-btn:active {
+    transform: scale(0.98);
 }
