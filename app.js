@@ -3,11 +3,11 @@
 // Instruct your buyer to change these 3 parameters to sync their database.
 // =========================================================================
 const CONFIG = {
-    BASE_ID: 'app2dNCzkf61VdNKa',
+    BASE_ID: 'YOUR_ACTUAL_BASE_ID_HERE',
     TABLE_NAME: 'Resources',
     // ⚠️ CRITICAL NOTICE TO BUYER: Use an Airtable Personal Access Token (PAT) 
     // with strictly scoped *Read-Only* (data.records:read) access for security.
-    TOKEN: 'patlORoiynqK5x7FM.cd39aef0ad04d04d923aeb8a4b48dd78b490f5a9c930fb69cbf6ea767a6d9dae'
+    TOKEN: 'PASTE_YOUR_SECRET_TOKEN_HERE'
 };
 
 // Construct the secure, filtered REST API gateway endpoint
