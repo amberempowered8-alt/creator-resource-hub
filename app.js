@@ -58,16 +58,34 @@ async function fetchResources() {
             const category = fields['Category'] || 'Resource';
             const description = fields['Description'] || 'No description provided for this dynamic resource item.';
             
-            // Smart Link Extractor: Handled to extract URLs from arrays (Lookups/Rollups) or standard fields safely
+            // Smart Link Extractor: Cleanse lookups, syncs, and prevent the "generated" loop
             let link = '#';
             if (fields['Access Link']) {
                 if (Array.isArray(fields['Access Link'])) {
-                    // If it's a Lookup/Rollup array, grab the first URL in the list
                     link = fields['Access Link'][0] || '#';
                 } else if (typeof fields['Access Link'] === 'object') {
                     link = fields['Access Link'].url || Object.values(fields['Access Link'])[0] || '#';
                 } else {
                     link = fields['Access Link'];
+                }
+            }
+
+            // Cleanse Synced Meta-tags: If Airtable sends "generated", override it with your real Payhip checkout
+            if (typeof link === 'string' && (link.includes('generated') || link === '#')) {
+                if (name.includes("3P's")) {
+                    link = 'https://payhip.com/b/Zf4Bz';
+                } else if (name.includes("Headless") || name.includes("Storefront")) {
+                    link = 'https://payhip.com/b/p7zMX';
+                } else {
+                    link = 'https://payhip.com/b/p7zMX'; // Master fallback
+                }
+            }
+
+            // Absolute URL Guard: Force external routing
+            if (link !== '#' && typeof link === 'string') {
+                link = link.trim();
+                if (!link.startsWith('http://') && !link.startsWith('https://')) {
+                    link = 'https://' + link;
                 }
             }
 
