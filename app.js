@@ -57,7 +57,7 @@ async function fetchResources() {
             const name = fields['Resource Name'] || 'Untitled Resource Asset';
             const category = fields['Category'] || 'Resource';
             const description = fields['Description'] || 'No description provided for this dynamic resource item.';
-            const link = fields['Access Link'] || '#';
+            const link = fields['https://payhip.com/b/Zf4Bz'] || '#';
             
             // Extract the attachment object securely
             let imageUrl = '';
