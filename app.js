@@ -3,7 +3,7 @@
 // Instruct your buyer to change these 3 parameters to sync their database.
 // =========================================================================
 const CONFIG = {
-    BASE_ID: 'app2dNCzkf61VdNKa.',
+    BASE_ID: 'app2dNCzkf61VdNKa',
     TABLE_NAME: 'Resources',
     // ⚠️ CRITICAL NOTICE TO BUYER: Use an Airtable Personal Access Token (PAT) 
     // with strictly scoped *Read-Only* (data.records:read) access for security.
