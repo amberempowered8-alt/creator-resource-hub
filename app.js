@@ -88,14 +88,6 @@ async function fetchResources() {
                     link = 'https://' + link;
                 }
             }
-
-            // Absolute URL Guard: Forces links to open as external sites instead of local files
-            if (link !== '#' && typeof link === 'string') {
-                link = link.trim();
-                if (!link.startsWith('http://') && !link.startsWith('https://')) {
-                    link = 'https://' + link;
-                }
-            }
             
             // Extract the attachment object securely
             let imageUrl = '';
@@ -123,6 +115,10 @@ async function fetchResources() {
                     </div>
                 </div>
             `;
+            
+            // Inject the completed asset cleanly right into the grid framework
+            container.innerHTML += cardHTML;
+        });
 
     } catch (error) {
         console.error('Data Transmission Error:', error);
