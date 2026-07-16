@@ -58,10 +58,13 @@ async function fetchResources() {
             const category = fields['Category'] || 'Resource';
             const description = fields['Description'] || 'No description provided for this dynamic resource item.';
             
-            // Smart Link Extractor: Targets the correct Airtable column and prevents [object Object] errors
+            // Smart Link Extractor: Handled to extract URLs from arrays (Lookups/Rollups) or standard fields safely
             let link = '#';
             if (fields['Access Link']) {
-                if (typeof fields['Access Link'] === 'object') {
+                if (Array.isArray(fields['Access Link'])) {
+                    // If it's a Lookup/Rollup array, grab the first URL in the list
+                    link = fields['Access Link'][0] || '#';
+                } else if (typeof fields['Access Link'] === 'object') {
                     link = fields['Access Link'].url || Object.values(fields['Access Link'])[0] || '#';
                 } else {
                     link = fields['Access Link'];
@@ -69,8 +72,11 @@ async function fetchResources() {
             }
 
             // Absolute URL Guard: Forces links to open as external sites instead of local files
-            if (link !== '#' && !link.startsWith('http://') && !link.startsWith('https://')) {
-                link = 'https://' + link;
+            if (link !== '#' && typeof link === 'string') {
+                link = link.trim();
+                if (!link.startsWith('http://') && !link.startsWith('https://')) {
+                    link = 'https://' + link;
+                }
             }
             
             // Extract the attachment object securely
