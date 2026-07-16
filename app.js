@@ -89,7 +89,13 @@ async function fetchResources() {
                     <div class="card-content">
                         <h3 class="card-title">${name}</h3>
                         <p class="card-description">${description}</p>
-                        <a href="${link}" target="_blank" rel="noopener noreferrer" class="card-btn">Access Resource</a>
+                        <a href="${link}" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important;" 
+                           class="card-btn">
+                           Access Resource
+                        </a>
                     </div>
                 </div>
             `;
