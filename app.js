@@ -116,17 +116,13 @@ async function fetchResources() {
                         <a href="${link}" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important; font-size: 11px; word-break: break-all;" 
+                           style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important;" 
                            class="card-btn">
-                           Go To: ${link}
+                           Access Resource
                         </a>
                     </div>
                 </div>
             `;
-            
-            // Inject the completed asset cleanly right into the grid framework
-            container.innerHTML += cardHTML;
-        });
 
     } catch (error) {
         console.error('Data Transmission Error:', error);
