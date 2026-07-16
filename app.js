@@ -7,7 +7,7 @@ const CONFIG = {
     TABLE_NAME: 'Resources',
     // ⚠️ CRITICAL NOTICE TO BUYER: Use an Airtable Personal Access Token (PAT) 
     // with strictly scoped *Read-Only* (data.records:read) access for security.
-    TOKEN: 'pat5DF7BRwEgMyJWc.e98b184cc9db72cdcc1903fde7cbbf54795677e87419198ecac46bd4fffd1665'
+    TOKEN: 'patniE8a38x2LJxDp.1b7f34b848c3402848c4f17eee3e30cfde6972d1a23a402ed84d39e56e39b104'
 };
 
 // Construct the secure, filtered REST API gateway endpoint
