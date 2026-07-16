@@ -98,9 +98,9 @@ async function fetchResources() {
                         <a href="${link}" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important;" 
+                           style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important; font-size: 11px; word-break: break-all;" 
                            class="card-btn">
-                           Access Resource
+                           Go To: ${link}
                         </a>
                     </div>
                 </div>
