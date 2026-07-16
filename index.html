@@ -7,14 +7,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     
     <style>
-        /* 🎨 MASTER CONFIGURATION MATRIX: YOUR BUYER CHANGES THESE 5 LINES */
+        /* 🎨 MASTER CONFIGURATION MATRIX: Sleek, Premium Dark Theme */
         :root {
             --primary: #FF007A;          /* Main interactive action & brand accents */
             --primary-hover: #D00063;    /* Hover action color match */
-            --bg: #FAFAFA;               /* Global document canvas backdrop */
-            --card-bg: #FFFFFF;          /* Inventory asset card backdrop */
-            --text: #2D2D2D;             /* Clear body copy typography focus */
-            --muted: #666666;            /* Secondary subtitles and meta tags */
+            --bg: #0b071e;               /* Global dark canvas backdrop */
+            --card-bg: #130f2e;          /* Card and section backdrop */
+            --text: #f8fafc;             /* Clear body copy typography focus */
+            --muted: #94a3b8;            /* Secondary subtitles and meta tags */
             
             /* VSL Interactive Dashboard Brand Overlays */
             --vsl-gradient: linear-gradient(135deg, #743ad5 0%, #d53a9d 100%);
@@ -65,10 +65,10 @@
             background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(229, 231, 235, 0.5);
+            border: 1px solid rgba(168, 85, 247, 0.2);
         }
 
         .card-image {
@@ -104,6 +104,7 @@
             margin: 0 0 0.5rem 0;
             font-size: 1.3rem;
             font-weight: 700;
+            color: var(--text);
         }
 
         .card-description {
@@ -145,95 +146,68 @@
 
     <main class="flex-grow container mx-auto px-4 py-10 max-w-5xl">
         
-        <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 text-center mb-12">
-            <h2 class="text-xl font-bold mb-4 text-purple-700">Step Inside the Tour Rooms:</h2>
+        <!-- Room Selection Navigation (Dark Theme styled) -->
+        <div style="background: var(--card-bg); border: 1px solid rgba(168, 85, 247, 0.2);" class="rounded-3xl p-6 shadow-xl text-center mb-12">
+            <h2 class="text-xl font-bold mb-4 text-purple-400">Step Inside the Tour Rooms:</h2>
             
             <div class="flex flex-wrap justify-center gap-4">
                 <button onclick="switchRoom('room1')" id="btn-room1" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-600 text-white shadow-lg transition">
                     🚪 Room 1: The Link-In-Bio Graveyard
                 </button>
-                <button onclick="switchRoom('room2')" id="btn-room2" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 transition">
+                <button onclick="switchRoom('room2')" id="btn-room2" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-950/40 text-purple-300 border border-purple-800/30 hover:bg-purple-900/40 transition">
                     🚪 Room 2: The Ghost Town Backend
                 </button>
-                <button onclick="switchRoom('room3')" id="btn-room3" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 transition">
+                <button onclick="switchRoom('room3')" id="btn-room3" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-950/40 text-purple-300 border border-purple-800/30 hover:bg-purple-900/40 transition">
                     🚪 Room 3: The Platform Rental Trap
                 </button>
             </div>
         </div>
 
-        <div id="tour-content" class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl min-h-[300px] flex flex-col justify-between mb-16">
+        <!-- Dynamic Tour Content Area (Dark Theme styled) -->
+        <div id="tour-content" style="background: var(--card-bg); border: 1px solid rgba(168, 85, 247, 0.2);" class="rounded-3xl p-8 shadow-xl min-h-[300px] flex flex-col justify-between mb-16 text-white">
         </div>
 
         <section class="my-12">
-            <h2 class="text-3xl font-black text-center mb-8 tracking-tight text-gray-900">Our Live Dynamic Catalog</h2>
+            <h2 class="text-3xl font-black text-center mb-8 tracking-tight text-white">Our Live Dynamic Catalog</h2>
             <div id="resource-container" class="resource-grid">
-                <p class="loading">Syncing secure gateway channel to database items...</p>
+                <p class="loading text-purple-300">Syncing secure gateway channel to database items...</p>
             </div>
         </section>
 
-        <!-- AE9Labs Custom Brand Kit Upgrade Block -->
+        <!-- AE9Labs Custom Brand Kit Upgrade Block (Simplified Swag Checklist) -->
         <section class="my-12">
             <div style="background: linear-gradient(135deg, #0d0826 0%, #1e1b4b 100%); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 20px; padding: 35px;" class="shadow-2xl text-white">
                 <h3 class="text-2xl font-black mb-3 text-white flex items-center gap-2">
                     ✨ Customize Any Order: Add the <span style="color: #c084fc;">AE9Labs Custom Brand Kit Upgrade</span>
                 </h3>
-                <p class="text-gray-300 text-sm mb-8 leading-relaxed max-w-4xl">
-                    Need a gorgeous, unified visual presence without subscription overhead? Instantly append our deep visual branding workshop to any template order at checkout. Your customized Brand Kit contains:
+                <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+                    Get your custom brand assets designed and delivered straight to your door with custom, on-demand physical swag produced and fulfilled by Printify:
                 </p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-                    <!-- Column 1 -->
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-3">
-                            <span class="text-pink-500 font-bold mt-1">⚡</span>
-                            <div>
-                                <h5 class="font-bold text-white text-base">Primary Logo</h5>
-                                <p class="text-gray-400 text-xs mt-1 leading-relaxed">Clean, high-resolution vector and transparent PNG formats.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="text-pink-500 font-bold mt-1">⚡</span>
-                            <div>
-                                <h5 class="font-bold text-white text-base">Curated Color System</h5>
-                                <p class="text-gray-400 text-xs mt-1 leading-relaxed">Custom-mapped HEX/RGB branding palettes optimized for dark/light UIs.</p>
-                            </div>
-                        </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm font-semibold max-w-3xl">
+                    <div class="flex items-center gap-3">
+                        <span class="text-pink-500 text-xl">🎒</span>
+                        <span>1x Custom Backpack</span>
                     </div>
-                    
-                    <!-- Column 2 -->
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-3">
-                            <span class="text-pink-500 font-bold mt-1">⚡</span>
-                            <div>
-                                <h5 class="font-bold text-white text-base">Secondary/Alt Logos</h5>
-                                <p class="text-gray-400 text-xs mt-1 leading-relaxed">Optimized configurations for badges, banners, and stamps.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="text-pink-500 font-bold mt-1">⚡</span>
-                            <div>
-                                <h5 class="font-bold text-white text-base">Printify-Ready Assets</h5>
-                                <p class="text-gray-400 text-xs mt-1 leading-relaxed">Seamlessly apply your new brand assets to premium custom on-demand apparel and accessories, pre-configured for instant Printify setups.</p>
-                            </div>
-                        </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-pink-500 text-xl">🥤</span>
+                        <span>1x Premium Tumbler</span>
                     </div>
-
-                    <!-- Column 3 -->
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-3">
-                            <span class="text-pink-500 font-bold mt-1">⚡</span>
-                            <div>
-                                <h5 class="font-bold text-white text-base">Brand Mark & Avatar</h5>
-                                <p class="text-gray-400 text-xs mt-1 leading-relaxed">Custom icons tailored for favicons and social profile formats.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="text-pink-500 font-bold mt-1">⚡</span>
-                            <div>
-                                <h5 class="font-bold text-white text-base">Complete Brand Style Guide</h5>
-                                <p class="text-gray-400 text-xs mt-1 leading-relaxed">A master PDF containing typography rules and precise spacing parameters.</p>
-                            </div>
-                        </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-pink-500 text-xl">👕</span>
+                        <span>2x Custom T-Shirts</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-pink-500 text-xl">💻</span>
+                        <span>1x Computer Desk Pad</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-pink-500 text-xl">📅</span>
+                        <span>1x Wall Calendar</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-pink-500 text-xl">🏷️</span>
+                        <span>50x Custom Stickers</span>
                     </div>
                 </div>
             </div>
@@ -279,21 +253,21 @@
                 painPoint: "Are you still paying monthly fees for a boring wall of blocky buttons that dilutes your personal brand?",
                 visual: `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                        <div class="bg-red-50 p-6 rounded-2xl border border-red-200 opacity-70">
-                            <p class="text-xs uppercase font-black text-red-600 mb-3">The Standard Way ❌</p>
+                        <div class="bg-red-950/30 p-6 rounded-2xl border border-red-500/30 opacity-70">
+                            <p class="text-xs uppercase font-black text-red-400 mb-3">The Standard Way ❌</p>
                             <div class="space-y-2">
-                                <div class="w-full bg-red-100 text-red-700 py-3 text-center rounded-lg text-xs font-bold">Cluttered Button #1</div>
-                                <div class="w-full bg-red-100 text-red-700 py-3 text-center rounded-lg text-xs font-bold">Expired Freebie Link</div>
-                                <div class="w-full bg-red-100 text-red-700 py-3 text-center rounded-lg text-xs font-bold">Unbranded Profile</div>
+                                <div class="w-full bg-red-900/40 text-red-300 py-3 text-center rounded-lg text-xs font-bold border border-red-800/30">Cluttered Button #1</div>
+                                <div class="w-full bg-red-900/40 text-red-300 py-3 text-center rounded-lg text-xs font-bold border border-red-800/30">Expired Freebie Link</div>
+                                <div class="w-full bg-red-900/40 text-red-300 py-3 text-center rounded-lg text-xs font-bold border border-red-800/30">Unbranded Profile</div>
                             </div>
                         </div>
-                        <div class="bg-purple-50 p-6 rounded-2xl border border-purple-200">
-                            <p class="text-xs uppercase font-black text-purple-600 mb-3">Live Dynamic Hub Framework ✅</p>
+                        <div class="bg-purple-950/30 p-6 rounded-2xl border border-purple-500/30">
+                            <p class="text-xs uppercase font-black text-purple-400 mb-3">Live Dynamic Hub Framework ✅</p>
                             <div class="grid grid-cols-2 gap-2">
-                                <div class="bg-white p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-100">🎨 Templates</div>
-                                <div class="bg-white p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-100">📚 Notion Guides</div>
-                                <div class="bg-white p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-100">💡 Free Resources</div>
-                                <div class="bg-white p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-100">🛠️ Mini-Courses</div>
+                                <div class="bg-purple-900/20 p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-800/30">🎨 Templates</div>
+                                <div class="bg-purple-900/20 p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-800/30">📚 Notion Guides</div>
+                                <div class="bg-purple-900/20 p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-800/30">💡 Free Resources</div>
+                                <div class="bg-purple-900/20 p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-800/30">🛠️ Mini-Courses</div>
                             </div>
                         </div>
                     </div>
@@ -304,7 +278,7 @@
                 title: "👻 Room 2: The Ghost Town Backend",
                 painPoint: "When a user requests your freebie, do you manually handle delivery or blindly cross your fingers hoping it didn't break?",
                 visual: `
-                    <div class="bg-gray-900 rounded-2xl p-6 text-center my-6 shadow-inner">
+                    <div class="bg-gray-950/50 rounded-2xl p-6 text-center my-6 shadow-inner border border-purple-950">
                         <p class="text-xs text-purple-400 uppercase font-black tracking-widest mb-4">Your Automated Lead Data Engine</p>
                         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs font-mono text-white">
                             <div class="bg-purple-900/60 p-3 rounded-xl border border-purple-500">💻 Site Interface</div>
@@ -321,8 +295,8 @@
                 title: "🫥 Room 3: The 'Platform Rental' Trap",
                 painPoint: "If your link provider raises prices or crashes during a viral launch, how much revenue falls through the cracks?",
                 visual: `
-                    <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-900 to-indigo-900 border border-purple-500 my-6 text-white shadow-lg">
-                        <div class="flex justify-between items-center text-sm mb-4 border-b border-purple-400 pb-2">
+                    <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-950 to-indigo-950 border border-purple-500/30 my-6 text-white shadow-lg">
+                        <div class="flex justify-between items-center text-sm mb-4 border-b border-purple-900 pb-2">
                             <span class="font-bold">Independent Architecture Metrics:</span>
                             <span class="bg-green-400 text-gray-900 text-xs px-2.5 py-0.5 rounded-full font-black">100% Owned</span>
                         </div>
@@ -339,7 +313,7 @@
 
         function switchRoom(roomId) {
             document.querySelectorAll('.room-btn').forEach(btn => {
-                btn.className = "room-btn px-6 py-3 rounded-xl font-bold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 transition";
+                btn.className = "room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-950/40 text-purple-300 border border-purple-800/30 hover:bg-purple-900/40 transition";
             });
             
             document.getElementById(`btn-${roomId}`).className = "room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-600 text-white shadow-lg transition";
@@ -349,13 +323,13 @@
             
             contentContainer.innerHTML = `
                 <div>
-                    <h3 class="text-2xl font-black text-gray-900 mb-2">${data.title}</h3>
-                    <p class="text-purple-600 italic text-sm font-medium mb-4">"${data.painPoint}"</p>
+                    <h3 class="text-2xl font-black text-white mb-2">${data.title}</h3>
+                    <p class="text-purple-400 italic text-sm font-medium mb-4">"${data.painPoint}"</p>
                     ${data.visual}
                 </div>
-                <div class="mt-6 pt-4 border-t border-gray-100">
-                    <p class="text-gray-700 text-sm font-bold flex items-center gap-2">
-                        <span class="text-purple-600">🎯 Solution:</span> ${data.takeaway}
+                <div class="mt-6 pt-4 border-t border-purple-900/50">
+                    <p class="text-gray-300 text-sm font-bold flex items-center gap-2">
+                        <span class="text-purple-400">🎯 Solution:</span> ${data.takeaway}
                     </p>
                 </div>
             `;
