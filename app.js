@@ -76,8 +76,6 @@ async function fetchResources() {
                         : '<div class="card-image" style="background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); flex-shrink: 0;"></div>'
                     }
                     <div class="card-content">
-                        <span class="badge ${badgeClass}">${category}</span>
-                        <h3 class="card-title">${name}</h3>
                         <p class="card-description">${description}</p>
                         <a href="${link}" target="_blank" class="card-btn">Access Resource</a>
                     </div>
