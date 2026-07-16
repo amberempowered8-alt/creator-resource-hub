@@ -57,16 +57,27 @@ async function fetchResources() {
             const name = fields['Resource Name'] || 'Untitled Resource Asset';
             const category = fields['Category'] || 'Resource';
             const description = fields['Description'] || 'No description provided for this dynamic resource item.';
-            const link = fields['https://payhip.com/b/Zf4Bz'] || '#';
+            
+            // Smart Link Extractor: Targets the correct Airtable column and prevents [object Object] errors
+            let link = '#';
+            if (fields['Access Link']) {
+                if (typeof fields['Access Link'] === 'object') {
+                    link = fields['Access Link'].url || Object.values(fields['Access Link'])[0] || '#';
+                } else {
+                    link = fields['Access Link'];
+                }
+            }
+
+            // Absolute URL Guard: Forces links to open as external sites instead of local files
+            if (link !== '#' && !link.startsWith('http://') && !link.startsWith('https://')) {
+                link = 'https://' + link;
+            }
             
             // Extract the attachment object securely
             let imageUrl = '';
             if (fields['Cover Image'] && fields['Cover Image'].length > 0) {
                 imageUrl = fields['Cover Image'][0].url;
             }
-
-            // Generate clean, system-standard class strings for dynamic badge colors
-            const badgeClass = `badge-${category.toLowerCase().replace(/\s+/g, '-')}`;
 
             // Build out the clean responsive layout template skeleton
             const cardHTML = `
@@ -76,8 +87,9 @@ async function fetchResources() {
                         : '<div class="card-image" style="background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); flex-shrink: 0;"></div>'
                     }
                     <div class="card-content">
+                        <h3 class="card-title">${name}</h3>
                         <p class="card-description">${description}</p>
-                        <a href="${link}" target="_blank" class="card-btn">Access Resource</a>
+                        <a href="${link}" target="_blank" rel="noopener noreferrer" class="card-btn">Access Resource</a>
                     </div>
                 </div>
             `;
