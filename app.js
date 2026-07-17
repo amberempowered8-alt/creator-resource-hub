@@ -96,25 +96,25 @@ async function fetchResources() {
             }
 
             // Build out the clean responsive layout template skeleton
-            const cardHTML = `
-                <div class="card card-anim">
-                    ${imageUrl 
-                        ? `<img src="${imageUrl}" alt="${name}" class="card-image" loading="lazy">` 
-                        : '<div class="card-image" style="background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); flex-shrink: 0;"></div>'
-                    }
-                    <div class="card-content">
-                        <h3 class="card-title">${name}</h3>
-                        <p class="card-description">${description}</p>
-                        <a href="${link}" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important;" 
-                           class="card-btn">
-                           Access Resource
-                        </a>
-                    </div>
-                </div>
-            `;
+const cardHTML = `
+    <div class="card card-anim">
+        ${imageUrl 
+            ? `<img src="${imageUrl}" alt="${name}" class="card-image" loading="lazy">` 
+            : '<div class="card-image" style="background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); flex-shrink: 0;"></div>'
+        }
+        <div class="card-content">
+            <h3 class="card-title">${name}</h3>
+            <p class="card-description">${description}</p>
+            <a href="${link}" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important;" 
+               class="card-btn payhip-buy-button">
+               Access Resource
+            </a>
+        </div>
+    </div>
+`;
             
             // Inject the completed asset cleanly right into the grid framework
             container.innerHTML += cardHTML;
