@@ -3,356 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Ultimate Creator Storefront Tour</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    
-    <!-- 🛒 PAYHIP SECURE EMBED OVERLAY GATEWAY -->
-    <script type="text/javascript" src="https://payhip.com/payhip.js" class="payhip-embed"></script>
-    
-    <style>
-        /* 🎨 MASTER CONFIGURATION MATRIX: Sleek, Premium Dark Theme */
-        :root {
-            --primary: #FF007A;          /* Main interactive action & brand accents */
-            --primary-hover: #D00063;    /* Hover action color match */
-            --bg: #0b071e;               /* Global dark canvas backdrop */
-            --card-bg: #130f2e;          /* Card and section backdrop */
-            --text: #f8fafc;             /* Clear body copy typography focus */
-            --muted: #94a3b8;            /* Secondary subtitles and meta tags */
-            
-            /* VSL Interactive Dashboard Brand Overlays */
-            --vsl-gradient: linear-gradient(135deg, #743ad5 0%, #d53a9d 100%);
-            --vsl-accent: #743ad5;
-            --vsl-dark-bg: #1e1b4b;
-        }
-
-        /* Core Canvas Reset Overlays */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-        }
-
-        .gradient-bg { background: var(--vsl-gradient); }
-        
-        .card-anim { transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
-        .card-anim:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(116, 58, 213, 0.15); }
-        
-        /* Custom Confetti Background Particle Matrix */
-        .confetti-bg {
-            background-color: var(--vsl-dark-bg);
-            background-image: 
-                radial-gradient(circle at 20% 30%, #ff007f 1px, transparent 1px),
-                radial-gradient(circle at 75% 40%, #00f0ff 2px, transparent 2px),
-                radial-gradient(circle at 40% 80%, #ffee00 1.5px, transparent 1.5px),
-                radial-gradient(circle at 90% 15%, #00ff66 1px, transparent 1px),
-                radial-gradient(circle at 10% 85%, var(--vsl-accent) 2.5px, transparent 2.5px),
-                radial-gradient(circle at 60% 70%, #d53a9d 1px, transparent 1px);
-            background-size: 200px 200px;
-        }
-
-        /* --- Dynamic CMS Product Display Grid UI (From style.css) --- */
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .loading {
-            grid-column: 1 / -1;
-            text-align: center;
-            color: var(--muted);
-            font-size: 1.2rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(168, 85, 247, 0.2);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .badge {
-            align-self: flex-start;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        /* Dynamic Category Badge Accent Matrices */
-        .badge-freebie { background: #E3FCEF; color: #006644; }
-        .badge-notion-template { background: #DEEBFF; color: #0052CC; }
-        .badge-premium-guide { background: #EAE6FF; color: #403294; }
-        .badge-resource-list { background: #E2F0D9; color: #385723; }
-
-        .card-title {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .card-description {
-            color: var(--muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .card-btn {
-            display: block;
-            text-align: center;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            padding: 0.75rem;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-
-        .card-btn:hover {
-            background: var(--primary-hover);
-        }
-    </style>
+    <title>Creator Resource Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for premium tech typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen flex flex-col font-sans">
+<body>
 
-    <header class="gradient-bg text-white py-12 px-4 shadow-xl text-center relative overflow-hidden flex flex-col items-center">
-        <div class="w-28 h-28 mb-4 overflow-hidden rounded-full border-4 border-purple-200/30 bg-purple-900/40 flex items-center justify-center shadow-lg text-5xl">
-            ✨
-        </div>
-        <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-3">The Creator Storefront Tour</h1>
-        <p class="text-lg md:text-xl text-purple-100 max-w-3xl mx-auto font-medium">
-            Stop losing leads to cluttered links. Take a virtual walk through the automation backend built to scale your digital empire.
-        </p>
+    <!-- Header Section -->
+    <header class="hero-section">
+        <h1 class="hero-title">Creator Resource Hub</h1>
+        <p class="hero-subtitle">High-value systems, blueprints, and automation architecture to scale your digital asset business.</p>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-10 max-w-5xl">
+    <!-- Main Live Dynamic Catalog Grid Container -->
+    <main class="catalog-container">
+        <h2 class="section-title">Our Live Dynamic Catalog</h2>
         
-        <!-- Room Selection Navigation (Dark Theme styled) -->
-        <div style="background: var(--card-bg); border: 1px solid rgba(168, 85, 247, 0.2);" class="rounded-3xl p-6 shadow-xl text-center mb-12">
-            <h2 class="text-xl font-bold mb-4 text-purple-400">Step Inside the Tour Rooms:</h2>
-            
-            <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="switchRoom('room1')" id="btn-room1" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-600 text-white shadow-lg transition">
-                    🚪 Room 1: The Link-In-Bio Graveyard
-                </button>
-                <button onclick="switchRoom('room2')" id="btn-room2" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-950/40 text-purple-300 border border-purple-800/30 hover:bg-purple-900/40 transition">
-                    🚪 Room 2: The Ghost Town Backend
-                </button>
-                <button onclick="switchRoom('room3')" id="btn-room3" class="room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-950/40 text-purple-300 border border-purple-800/30 hover:bg-purple-900/40 transition">
-                    🚪 Room 3: The Platform Rental Trap
-                </button>
-            </div>
-        </div>
-
-        <!-- Dynamic Tour Content Area (Dark Theme styled) -->
-        <div id="tour-content" style="background: var(--card-bg); border: 1px solid rgba(168, 85, 247, 0.2);" class="rounded-3xl p-8 shadow-xl min-h-[300px] flex flex-col justify-between mb-16 text-white">
-        </div>
-
-        <section class="my-12">
-            <h2 class="text-3xl font-black text-center mb-8 tracking-tight text-white">Our Live Dynamic Catalog</h2>
-            <div id="resource-container" class="resource-grid">
-                <p class="loading text-purple-300">Syncing secure gateway channel to database items...</p>
-            </div>
-        </section>
-
-        <!-- AE9Labs Custom Brand Kit Upgrade Block (Simplified Swag Checklist) -->
-        <section class="my-12">
-            <div style="background: linear-gradient(135deg, #0d0826 0%, #1e1b4b 100%); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 20px; padding: 35px;" class="shadow-2xl text-white">
-                <h3 class="text-2xl font-black mb-3 text-white flex items-center gap-2">
-                    ✨ Customize Any Order: Add the <span style="color: #c084fc;">AE9Labs Custom Brand Kit Upgrade</span>
-                </h3>
-                <p class="text-gray-300 text-sm mb-6 leading-relaxed">
-                    Get your custom brand assets designed and delivered straight to your door with custom, on-demand physical swag produced and fulfilled by Printify:
-                </p>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm font-semibold max-w-3xl">
-                    <div class="flex items-center gap-3">
-                        <span class="text-pink-500 text-xl">🎒</span>
-                        <span>1x Custom Backpack</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-pink-500 text-xl">🥤</span>
-                        <span>1x Premium Tumbler</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-pink-500 text-xl">👕</span>
-                        <span>2x Custom T-Shirts</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-pink-500 text-xl">💻</span>
-                        <span>1x Computer Desk Pad</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-pink-500 text-xl">📅</span>
-                        <span>1x Wall Calendar</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-pink-500 text-xl">🏷️</span>
-                        <span>50x Custom Stickers</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-pink-500 text-xl">📓</span>
-                        <span>1x Custom Hardcover Journal</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🛡️ HIGH-END TIER TEMPORARILY ARCHIVED TO PROTECT MAESTRO UNIVERSITY STUDY TIME
-        <section class="mt-12 max-w-2xl mx-auto">
-            <div style="background: #0d0826; border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 15px;">
-                <h4 style="margin: 0; color: #f8fafc; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; font-weight: bold;">
-                    🛡️ Want Custom Developer Deployments?
-                </h4>
-                <p style="margin: 0; color: #cbd5e1; font-size: 0.95rem; line-height: 1.5;">
-                    If you are ready to scale up and want our team to build, style, and connect your custom data pipelines for you, explore our premium, turnkey production tiers.
-                </p>
-                <a href="https://amberempowered8-alt.github.io/AE9-Labs/" target="_blank" style="display: inline-block; align-self: flex-start; background: linear-gradient(90deg, #a855f7, #06b6d4); color: #050212; font-weight: bold; text-decoration: none; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">
-                    Explore DFY Production Tiers
-                </a>
-            </div>
-        </section>
-        -->
-
-        
-            
-            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                <!-- Product 1: Headless Creator Storefront Overlay Link (Launches In-App Overlay modal popup) -->
-                <a href="https://payhip.com/b/p7zMX" 
-                   class="payhip-buy-button inline-block text-center bg-pink-600 text-white font-black text-base px-6 py-4 rounded-xl shadow-lg hover:bg-pink-700 transform active:scale-95 transition tracking-wide w-full sm:w-auto">
-                    🔥 HEADLESS STOREFRONT + SOP ($99)
-                </a>
-                
-                <!-- Product 2: The 3P's & 3C's Template Overlay Link (Launches In-App Overlay modal popup) -->
-                <a href="https://payhip.com/b/Zf4Bz" 
-                   class="payhip-buy-button inline-block text-center bg-transparent text-purple-300 font-bold text-base px-6 py-4 rounded-xl border-2 border-purple-500 hover:bg-purple-900/30 transform active:scale-95 transition tracking-wide w-full sm:w-auto">
-                    ⚡ THE 3P'S & 3C'S MATRIX ($99)
-                </a>
-            </div>
-        </section>
-
+        <!-- The dynamic cards will automatically inject right inside this clean empty box -->
+        <div id="resource-container"></div>
     </main>
 
-    <footer class="bg-gray-900 text-gray-400 py-6 text-center text-xs border-t border-gray-800 mt-20">
-        <p>&copy; 2026 Creator Optimization Systems. All Rights Reserved.</p>
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <p>&copy; 2026 Creator Resource Hub. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const rooms = {
-            room1: {
-                title: "🪦 Room 1: The 'Link-In-Bio' Graveyard",
-                painPoint: "Are you still paying monthly fees for a boring wall of blocky buttons that dilutes your personal brand?",
-                visual: `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                        <div class="bg-red-950/30 p-6 rounded-2xl border border-red-500/30 opacity-70">
-                            <p class="text-xs uppercase font-black text-red-400 mb-3">The Standard Way ❌</p>
-                            <div class="space-y-2">
-                                <div class="w-full bg-red-900/40 text-red-300 py-3 text-center rounded-lg text-xs font-bold border border-red-800/30">Cluttered Button #1</div>
-                                <div class="w-full bg-red-900/40 text-red-300 py-3 text-center rounded-lg text-xs font-bold border border-red-800/30">Expired Freebie Link</div>
-                                <div class="w-full bg-red-900/40 text-red-300 py-3 text-center rounded-lg text-xs font-bold border border-red-800/30">Unbranded Profile</div>
-                            </div>
-                        </div>
-                        <div class="bg-purple-950/30 p-6 rounded-2xl border border-purple-500/30">
-                            <p class="text-xs uppercase font-black text-purple-400 mb-3">Live Dynamic Hub Framework ✅</p>
-                            <div class="grid grid-cols-2 gap-2">
-                                <div class="bg-purple-900/20 p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-800/30">🎨 Templates</div>
-                                <div class="bg-purple-900/20 p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-800/30">📚 Notion Guides</div>
-                                <div class="bg-purple-900/20 p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-800/30">💡 Free Resources</div>
-                                <div class="bg-purple-900/20 p-3 rounded-xl text-center text-xs font-bold shadow-sm border border-purple-800/30">🛠️ Mini-Courses</div>
-                            </div>
-                        </div>
-                    </div>
-                `,
-                takeaway: "Your assets deserve a clean, searchable marketplace view that maintains audience focus instantly."
-            },
-            room2: {
-                title: "👻 Room 2: The Ghost Town Backend",
-                painPoint: "When a user requests your freebie, do you manually handle delivery or blindly cross your fingers hoping it didn't break?",
-                visual: `
-                    <div class="bg-gray-950/50 rounded-2xl p-6 text-center my-6 shadow-inner border border-purple-950">
-                        <p class="text-xs text-purple-400 uppercase font-black tracking-widest mb-4">Your Automated Lead Data Engine</p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs font-mono text-white">
-                            <div class="bg-purple-900/60 p-3 rounded-xl border border-purple-500">💻 Site Interface</div>
-                            <span class="text-purple-400 font-bold">➔</span>
-                            <div class="bg-indigo-900/60 p-3 rounded-xl border border-indigo-500">📬 Ingestion Gateway</div>
-                            <span class="text-purple-400 font-bold">➔</span>
-                            <div class="bg-pink-900/60 p-3 rounded-xl border border-pink-500">📊 Airtable Control Base</div>
-                        </div>
-                    </div>
-                `,
-                takeaway: "Capture leads securely in real-time, instantly sync records to spreadsheets, and fire off deliveries completely on autopilot while you sleep."
-            },
-            room3: {
-                title: "🏠 Room 3: The 'Platform Rental' Trap",
-                painPoint: "If your link provider raises prices or crashes during a viral launch, how much revenue falls through the cracks?",
-                visual: `
-                    <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-950 to-indigo-950 border border-purple-500/30 my-6 text-white shadow-lg">
-                        <div class="flex justify-between items-center text-sm mb-4 border-b border-purple-900 pb-2">
-                            <span class="font-bold">Independent Architecture Metrics:</span>
-                            <span class="bg-green-400 text-gray-900 text-xs px-2.5 py-0.5 rounded-full font-black">100% Owned</span>
-                        </div>
-                        <ul class="text-xs space-y-3">
-                            <li class="flex items-center gap-2">✨ Zero hosting fees or recurring platform overhead</li>
-                            <li class="flex items-center gap-2">✨ Bulletproof ownership—your audience lists stay yours</li>
-                            <li class="flex items-center gap-2">✨ Complete design freedom with no third-party branding</li>
-                        </ul>
-                    </div>
-                `,
-                takeaway: "Stop renting your business infrastructure. Own your code, secure your asset tracking, and optimize your margins."
-            }
-        };
+    <!-- Core Logic Engine Script Tag (Cache-Buster incremented to v=107) -->
+    <script src="app.js?v=107"></script>
 
-        function switchRoom(roomId) {
-            document.querySelectorAll('.room-btn').forEach(btn => {
-                btn.className = "room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-950/40 text-purple-300 border border-purple-800/30 hover:bg-purple-900/40 transition";
-            });
-            
-            document.getElementById(`btn-${roomId}`).className = "room-btn px-6 py-3 rounded-xl font-bold text-sm bg-purple-600 text-white shadow-lg transition";
-            
-            const data = rooms[roomId];
-            const contentContainer = document.getElementById('tour-content');
-            
-            contentContainer.innerHTML = `
-                <div>
-                    <h3 class="text-2xl font-black text-white mb-2">${data.title}</h3>
-                    <p class="text-purple-400 italic text-sm font-medium mb-4">"${data.painPoint}"</p>
-                    ${data.visual}
-                </div>
-                <div class="mt-6 pt-4 border-t border-purple-900/50">
-                    <p class="text-gray-300 text-sm font-bold flex items-center gap-2">
-                        <span class="text-purple-400">🎯 Solution:</span> ${data.takeaway}
-                    </p>
-                </div>
-            `;
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            switchRoom('room1');
-        });
-    </script>
-    
-    <script src="app.js?v=106"></script>
 </body>
 </html>
+
+
