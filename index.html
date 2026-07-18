@@ -95,9 +95,14 @@
         }
 
         .logo-image {
-            height: 36px;
+            height: 65px; /* Increased from 36px to make your custom avatar beautifully visible */
             width: auto;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05); /* Soft premium hover pop */
         }
 
         .logo-text-fallback {
