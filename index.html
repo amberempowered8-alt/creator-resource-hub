@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE9 // Amber Empowered Systems & Brand Architecture</title>
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* =========================================================================
+           🌌 AE9 SYSTEM ARCHITECTURE - PREMIUM CYBER MASTER THEME
+           ========================================================================= */
+        :root {
+            --bg-primary: #07080b;
+            --bg-secondary: #0e111a;
+            --bg-card: #151926;
+            --accent-neon: #ff007f;     /* Hot neon pink */
+            --accent-cyber: #45f3ff;    /* Cyber neon cyan */
+            --accent-gold: #c5a880;     /* Luxury gold text highlight */
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(69, 243, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Abstract Glow Background Ornaments */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 0, 127, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(69, 243, 255, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: rgba(7, 8, 11, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 40px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-cyber);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        /* Main Shop CTA Link button */
+        .shop-cta-btn {
+            background: linear-gradient(135deg, var(--accent-neon) 0%, #e60072 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .shop-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 127, 0.5);
+        }
+
+        /* Hero Banner (Explaining What exactly AE9 does) */
+        .hero {
+            padding: 160px 20px 100px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(69, 243, 255, 0.1);
+            border: 1px solid rgba(69, 243, 255, 0.2);
+            color: var(--accent-cyber);
+            font-family: 'JetBrains Mono', monospace;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #a9b7c6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-neon) 0%, var(--accent-cyber) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: var(--accent-gold);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* The Main 3 Pillars Grid (What we do) */
+        .pillars-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pillar-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            border-color: rgba(69, 243, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .pillar-icon {
+            font-size: 32px;
+            color: var(--accent-cyber);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(69, 243, 255, 0.3);
+        }
+
+        .pillar-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .pillar-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Portfolio / Showcased Resource Catalog Section */
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .catalog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .section-title span {
+            color: var(--accent-cyber);
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 40px;
+        }
+
+        /* Portfolio Showcase Cards */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-glow);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-cyber);
+            box-shadow: 0 0 30px rgba(69, 243, 255, 0.25);
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(69, 243, 255, 0.2);
+        }
+
+        .card-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        /* Primary action button on portfolio card redirects directly to Payhip service link */
+        .card-btn {
+            display: block;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .card-btn:hover {
+            background-color: var(--accent-neon);
+            border-color: var(--accent-neon);
+            box-shadow: 0 6px 20px rgba(255, 0, 127, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* 🚨 STAPLED STICKY BRAND KIT COMPONENT */
+        .brand-kit-panel {
+            background: linear-gradient(135deg, #151926 0%, #0e111a 100%);
+            border: 1.5px solid var(--accent-cyber);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 20px 50px rgba(69, 243, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-kit-panel::before {
+            content: 'BRAND';
+            position: absolute;
+            right: -10px;
+            bottom: -20px;
+            font-size: 120px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            letter-spacing: -0.05em;
+            pointer-events: none;
+        }
+
+        .brand-kit-text {
+            max-width: 65%;
+        }
+
+        .brand-kit-text h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-kit-text h3 span {
+            color: var(--accent-cyber);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            border: 1px solid rgba(69, 243, 255, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .brand-kit-text p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .brand-kit-btn {
+            background-color: transparent;
+            border: 2px solid var(--accent-cyber);
+            color: var(--accent-cyber);
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            white-space: nowrap;
+            box-shadow: 0 0 15px rgba(69, 243, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .brand-kit-btn:hover {
+            background-color: var(--accent-cyber);
+            color: var(--bg-primary);
+            box-shadow: 0 0 30px rgba(69, 243, 255, 0.4);
+        }
+
+        /* Main Footer Area */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: var(--bg-secondary);
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        /* Loading Indicator States */
+        .loading {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            padding: 60px;
+            grid-column: 1 / -1;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 968px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .hero h1 {
+                font-size: 44px;
+            }
+            .brand-kit-panel {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+            .brand-kit-text {
+                max-width: 100%;
+            }
+            .brand-kit-text h3 {
+                justify-content: center;
+            }
+            .brand-kit-btn {
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links {
+                display: none; /* Mobile simplicity fallback */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🌐 Dynamic Navigation Menu -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">AE9<span>.systems</span></a>
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#showcase" class="nav-link">Showcase</a>
+                <a href="#brand-kit" class="nav-link">Brand Kit</a>
+                <a href="https://payhip.com/amberempowered" target="_blank" class="shop-cta-btn">Access Storefront</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 🌌 Authority Brand Hero Module -->
+    <section class="hero" id="about">
+        <div class="hero-inner">
+            <div class="badge">Dynamic Systems Engineering</div>
+            <h1>Automate Your Growth. <span>Own Your Real Estate.</span></h1>
+            <p>We build high-converting headless digital storefront architectures, automated marketing databases, and premium developer pipelines for creators ready to drop the software subscription tax.</p>
+            <a href="https://payhip.com/amberempowered" target="_blank" class="shop-cta-btn" style="padding: 16px 40px; font-size: 16px;">
+                <i class="fa-solid fa-cart-shopping" style="margin-right: 8px;"></i> View Available Services & Blueprint Templates
+            </a>
+        </div>
+    </section>
+
+    <!-- 🧩 The 3 Mechanical Focus Pillars -->
+    <section class="pillars-section">
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fa-solid fa-cubes"></i></div>
+                <h3>Headless Frontends</h3>
+                <p>Custom, responsive digital shop displays linked directly to secure backend databases with zero ongoing subscription costs.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fa-solid fa-gears"></i></div>
+                <h3>Systems Automation</h3>
+                <p>Complete custom workflow mapping utilizing Make, Notion, and REST APIs to automatically run business inventory behind the scenes.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Brand Asset Packs</h3>
+                <p>Premium copywriting blueprints, automated content vault frameworks, and visuals designed for faceless conversions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📁 Airtable Dynamic Live Portfolio Hub -->
+    <section class="catalog-container" id="showcase">
+        <div class="catalog-header">
+            <div>
+                <h2 class="section-title">Showcase & <span>Case Studies</span></h2>
+                <p class="section-subtitle">Real-time view of our active systems, resource blueprints, and frameworks.</p>
+            </div>
+        </div>
+
+        <!-- Airtable dynamically populates our portfolio here -->
+        <div id="resource-container" class="grid-container"></div>
+    </section>
+
+    <!-- 🚨 THE STAPLED BRAND KIT HUB -->
+    <section class="catalog-container" id="brand-kit" style="padding-top: 0;">
+        <div class="brand-kit-panel">
+            <div class="brand-kit-text">
+                <h3><span>STAPLED</span> The AE9 Master Brand Kit</h3>
+                <p>Looking to maintain cohesive visuals, luxury color palettes, and structured tech fonts across your own faceless screens and live presentations? Instantly claim our complete branding layout pack containing high-converting social layouts.</p>
+            </div>
+            <!-- Set your target Payhip or Canva Brand Kit link below -->
+            <a href="https://payhip.com/b/p7zMX" target="_blank" class="brand-kit-btn">
+                <i class="fa-solid fa-box-open" style="margin-right: 8px;"></i> Access Brand Kit Assets
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Clean Footer -->
+    <footer>
+        <div class="footer-logo">AE9 Systems Architecture</div>
+        <p>&copy; 2026 Amber Empowered LLC. All Rights Reserved. All systems engineered under local Phoenix administrative compliance.</p>
+    </footer>
+
+    <!-- =========================================================================
+         ⚙️ SECURE AIRTABLE DYNAMIC POPULATOR ENGINE
+         ========================================================================= -->
+    <script>
+        const CONFIG = {
+            BASE_ID: 'app2dNCzkf61VdNKa',
+            TABLE_NAME: 'Resources',
+            TOKEN: 'patyL33svMDeXQTBl.ec9405459cca137c101221070ea758779035d955e4180a6d2b21beab4d147611'
+        };
+
+        const URL_ENDPOINT = `https://api.airtable.com/v0/${CONFIG.BASE_ID}/${encodeURIComponent(CONFIG.TABLE_NAME)}?filterByFormula=Status%3D%27Published%27`;
+
+        async function fetchResources() {
+            const container = document.getElementById('resource-container');
+            if (!container) return;
+            
+            try {
+                container.innerHTML = '<p class="loading">Locating live portfolio database entries...</p>';
+
+                const response = await fetch(URL_ENDPOINT, {
+                    headers: {
+                        'Authorization': `Bearer ${CONFIG.TOKEN}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) throw new Error(`Gateway Error: ${response.status}`);
+                const data = await response.json();
+                
+                container.innerHTML = ''; // Clear loading
+
+                if (!data.records || data.records.length === 0) {
+                    container.innerHTML = `<p class="loading">No showcased products found. Ensure records are marked 'Published' inside Airtable.</p>`;
+                    return;
+                }
+
+                data.records.forEach(record => {
+                    const fields = record.fields;
+                    
+                    const name = fields['Resource Name'] || 'Untitled Resource Asset';
+                    const description = fields['Description'] || 'No description provided for this dynamic resource item.';
+                    
+                    // Direct access target pathway configuration
+                    let link = '#';
+                    if (fields['Access Link']) {
+                        if (Array.isArray(fields['Access Link'])) {
+                            link = fields['Access Link'][0];
+                        } else if (typeof fields['Access Link'] === 'object') {
+                            link = fields['Access Link'].url || Object.values(fields['Access Link'])[0];
+                        } else {
+                            link = fields['Access Link'];
+                        }
+                    }
+
+                    // Strict redirect overrides directly to Payhip Services
+                    if (typeof link === 'string' && (link.includes('generated') || link === '#')) {
+                        if (name.includes("3P's")) {
+                            link = 'https://payhip.com/b/Zf4Bz';
+                        } else if (name.includes("Headless") || name.includes("Storefront")) {
+                            link = 'https://payhip.com/b/p7zMX';
+                        } else {
+                            link = 'https://payhip.com/b/p7zMX';
+                        }
+                    }
+
+                    // Formatting cleaning
+                    if (link !== '#' && typeof link === 'string') {
+                        link = link.trim();
+                        if (!link.startsWith('http://') && !link.startsWith('https://')) {
+                            link = 'https://' + link;
+                        }
+                    }
+                    
+                    // Cover Image extraction
+                    let imageUrl = '';
+                    if (fields['Cover Image'] && fields['Cover Image'].length > 0) {
+                        const attachment = fields['Cover Image'][0];
+                        if (attachment.thumbnails && attachment.thumbnails.full) {
+                            imageUrl = attachment.thumbnails.full.url;
+                        } else {
+                            imageUrl = attachment.url;
+                        }
+                    }
+
+                    // Build and append the showcased card element
+                    const cardHTML = `
+                        <div class="card">
+                            ${imageUrl 
+                                ? `<img src="${imageUrl}" alt="${name}" class="card-image" loading="lazy">` 
+                                : '<div class="card-image" style="background: linear-gradient(135deg, #151926 0%, #0e111a 100%);"></div>'
+                            }
+                            <div class="card-content">
+                                <h3 class="card-title">${name}</h3>
+                                <p class="card-description">${description}</p>
+                                <a href="${link}" target="_blank" rel="noopener noreferrer" class="card-btn">
+                                   <i class="fa-solid fa-arrow-up-right-from-square" style="margin-right: 8px;"></i> See Service Details
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.innerHTML += cardHTML;
+                });
+
+            } catch (error) {
+                console.error('System Exception:', error);
+                container.innerHTML = `<p class="loading" style="color: #ff4d4d;">🔒 Secure portfolio pipeline is settling. Try refreshing the gateway.</p>`;
+            }
+        }
+
+        // Fire database query instantly
+        fetchResources();
+    </script>
+</body>
+</html>
