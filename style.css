@@ -1,162 +1,117 @@
-/* =========================================================================
-   🎨 MASTER DESIGN COMPONENT FRAMEWORK (style.css)
-   Clean, modern architectural layout system for headless storefront builds.
-   ========================================================================= */
-
-:root {
-    --primary: #FF007A;          /* Bold accent color for your creator brand */
-    --primary-hover: #D00063;    /* Hover action color match */
-    --bg: #FAFAFA;               /* Canvas backdrop color */
-    --card-bg: #FFFFFF;          /* Pure white block for crisp contrast card boundaries */
-    --text: #2D2D2D;             /* Deep neutral charcoal text for high-contrast reading */
-    --muted: #666666;            /* Secondary typography accents & meta details */
-}
-
-/* --- Document Canvas Overrides --- */
+/* Core Reset & Global Theme Settings */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+    background-color: #0b0c10;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     margin: 0;
     padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Modular Layout Sections --- */
-header {
+/* Header/Hero Styling */
+.hero-section {
     text-align: center;
-    padding: 4rem 1rem;
-    background: #ffffff;
-    border-bottom: 1px solid #eaeaea;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #1f2833 0%, #0b0c10 100%);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.75rem;
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    line-height: 1.1;
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.05em;
 }
 
-header p {
-    color: var(--muted);
-    margin-top: 0.75rem;
-    font-size: 1.125rem;
-    max-w: 600px;
-    margin-left: auto;
-    margin-right: auto;
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #c5a880; /* Elegant subtle text accent */
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.85;
 }
 
-main {
+/* Grid Layout & Container */
+.catalog-container {
     max-width: 1200px;
-    margin: 3rem auto;
-    padding: 0 1.5rem;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-/* --- Pristine Automated Dynamic Responsive Grid --- */
-.resource-grid {
+.section-title {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
 }
 
-.loading {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: var(--muted);
-    font-size: 1.2rem;
-    padding: 3rem 0;
-    font-weight: 500;
-}
-
-/* --- Resource Card Layout Architecture --- */
+/* Premium Card Architecture */
 .card {
-    background: var(--card-bg);
+    background-color: #1f2833;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
 }
 
-/* Custom interactive animation state matrix */
-.card-anim {
-    transition: transform 0.3s cubic-bezier(.25, .8, .25, 1), 
-                box-shadow 0.3s cubic-bezier(.25, .8, .25, 1);
-}
-
-.card-anim:hover {
+.card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .card-image {
     width: 100%;
-    height: 200px;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
-    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
-    flex-shrink: 0; /* Prevents compression layouts if text content expands */
+    border-bottom: 2px solid #0b0c10;
 }
 
 .card-content {
-    padding: 1.5rem;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-/* --- Dynamic Structural Badges --- */
-.badge {
-    align-self: flex-start;
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* Categorized Badge Visual Matrices (Matches option outputs from Airtable) */
-.badge-freebie { background: #E3FCEF; color: #006644; }
-.badge-notion-template { background: #DEEBFF; color: #0052CC; }
-.badge-premium-guide { background: #EAE6FF; color: #403294; }
-.badge-resource-list { background: #E2F0D9; color: #385723; }
-
-/* --- Typography & Actions Inside Cards --- */
 .card-title {
-    margin: 0 0 0.5rem 0;
     font-size: 1.35rem;
-    font-weight: 700;
-    line-height: 1.25;
+    font-weight: 600;
+    margin: 0 0 12px 0;
 }
 
 .card-description {
-    color: var(--muted);
     font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.75rem;
+    color: #a9b7c6;
+    line-height: 1.5;
+    margin: 0 0 24px 0;
     flex-grow: 1;
 }
 
+/* Vibrant Call-To-Action Button */
 .card-btn {
     display: block;
     text-align: center;
-    background: var(--primary);
-    color: #FFFFFF;
+    background-color: #ff007f; /* Hot neon pink */
+    color: #ffffff;
     text-decoration: none;
-    padding: 0.8rem;
+    padding: 14px;
     border-radius: 8px;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
 }
 
 .card-btn:hover {
-    background: var(--primary-hover);
+    background-color: #e60072;
 }
 
-.card-btn:active {
-    transform: scale(0.98);
+/* Loading States */
+.loading {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #a9b7c6;
+    padding: 40px;
 }
