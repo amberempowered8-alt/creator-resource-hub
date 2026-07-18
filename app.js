@@ -103,7 +103,7 @@ async function fetchResources() {
                 }
             }
 
-            // Build out the clean responsive layout template skeleton
+            // Build out the clean responsive layout template skeleton using original layout structure
             const cardHTML = `
                 <div class="card card-anim">
                     ${imageUrl 
@@ -117,7 +117,7 @@ async function fetchResources() {
                            target="_blank" 
                            rel="noopener noreferrer" 
                            style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important;" 
-                           class="card-btn payhip-buy-button">
+                           class="card-btn">
                            Access Resource
                         </a>
                     </div>
@@ -127,11 +127,6 @@ async function fetchResources() {
             // Inject the completed asset cleanly right into the grid framework
             container.innerHTML += cardHTML;
         });
-
-        // 🎯 THE RE-SCAN OVERRIDE: Forces Payhip to find and bind the lightbox popup to our fresh dynamic elements
-        if (window.Payhip && typeof window.Payhip.registerButtons === 'function') {
-            window.Payhip.registerButtons();
-        }
 
     } catch (error) {
         console.error('Data Transmission Error:', error);
