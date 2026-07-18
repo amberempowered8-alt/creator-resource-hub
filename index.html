@@ -366,36 +366,44 @@
             padding: 0 20px;
         }
 
+        /* Bolder, highly visual styling (image_0d6c2b.png) */
         .policy-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
+            gap: 40px;
             background-color: var(--bg-secondary);
-            border: 1px dashed rgba(69, 243, 255, 0.15);
-            border-radius: 12px;
-            padding: 32px;
+            border: 2px dashed rgba(69, 243, 255, 0.3); /* Made dashed lines more intense */
+            border-radius: 16px;
+            padding: 48px; /* Extra breathing space inside the box */
             position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
         .policy-card h4 {
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 20px; /* Bolder, clearer header style */
+            font-weight: 800;
             color: #ffffff;
-            margin-bottom: 10px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            letter-spacing: -0.02em;
         }
 
         .policy-card h4 i {
             color: var(--accent-cyber);
-            font-size: 14px;
+            font-size: 18px; /* Slightly larger icons */
+            text-shadow: 0 0 10px rgba(69, 243, 255, 0.4);
         }
 
         .policy-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.6;
+            font-size: 15px; /* Boosted copy size so it never looks like hidden fine print */
+            color: #cbd5e1; /* Increased text brightness for maximum contrast readability */
+            line-height: 1.7;
+        }
+
+        .policy-card p strong {
+            color: var(--accent-cyber); /* Highlights specific terms visually */
         }
 
         /* Footer Section */
@@ -428,6 +436,11 @@
             .pillars-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
+            }
+            .policy-grid {
+                grid-template-columns: 1fr;
+                padding: 32px;
+                gap: 32px;
             }
             .hero h1 {
                 font-size: 36px;
