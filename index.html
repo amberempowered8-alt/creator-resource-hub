@@ -40,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* */
         /* Ambient Glow Background Ornaments */
         body::before {
             content: '';
@@ -95,14 +94,14 @@
         }
 
         .logo-image {
-            height: 65px; /* Increased from 36px to make your custom avatar beautifully visible */
+            height: 65px; 
             width: auto;
             object-fit: contain;
             transition: transform 0.3s ease;
         }
 
         .logo-image:hover {
-            transform: scale(1.05); /* Soft premium hover pop */
+            transform: scale(1.05); 
         }
 
         .logo-text-fallback {
@@ -154,7 +153,6 @@
             box-shadow: 0 6px 20px rgba(255, 0, 127, 0.45);
         }
 
-        /* */
         /* Hero Banner Framework */
         .hero {
             padding: 180px 20px 80px;
@@ -226,7 +224,6 @@
             gap: 24px;
         }
 
-        /* */
         .pillar-card {
             background-color: var(--bg-secondary);
             border: 1px solid rgba(255, 255, 255, 0.02);
@@ -294,7 +291,6 @@
             gap: 30px;
         }
 
-        /* */
         /* Cyber Product Cards */
         .card {
             background-color: var(--bg-card);
@@ -363,84 +359,43 @@
             transform: translateY(-1px);
         }
 
-        /* */
-        /* Stapled Brand Kit Component */
-        .brand-kit-panel {
-            background: linear-gradient(135deg, #0e111a 0%, #08090d 100%);
-            border: 1.5px solid var(--accent-cyber);
-            border-radius: 16px;
+        /* Dynamic Support & Clear Boundaries Panel */
+        .policy-section {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            background-color: var(--bg-secondary);
+            border: 1px dashed rgba(69, 243, 255, 0.15);
+            border-radius: 12px;
             padding: 32px;
-            margin-top: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
-            box-shadow: 0 15px 40px rgba(69, 243, 255, 0.08);
             position: relative;
-            overflow: hidden;
         }
 
-        .brand-kit-panel::before {
-            content: 'BRAND';
-            position: absolute;
-            right: -5px;
-            bottom: -15px;
-            font-size: 100px;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.01);
-            letter-spacing: -0.05em;
-            pointer-events: none;
-        }
-
-        .brand-kit-text {
-            max-width: 65%;
-            position: relative;
-            z-index: 2;
-        }
-
-        .brand-kit-text h3 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 8px;
+        .policy-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .brand-kit-text h3 span {
+        .policy-card h4 i {
             color: var(--accent-cyber);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            border: 1px solid rgba(69, 243, 255, 0.25);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        .brand-kit-text p {
-            color: var(--text-muted);
             font-size: 14px;
         }
 
-        .brand-kit-btn {
-            background-color: transparent;
-            border: 2px solid var(--accent-cyber);
-            color: var(--accent-cyber);
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 15px;
-            white-space: nowrap;
-            box-shadow: 0 0 12px rgba(69, 243, 255, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .brand-kit-btn:hover {
-            background-color: var(--accent-cyber);
-            color: var(--bg-primary);
-            box-shadow: 0 0 25px rgba(69, 243, 255, 0.35);
+        .policy-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* Footer Section */
@@ -477,21 +432,6 @@
             .hero h1 {
                 font-size: 36px;
             }
-            .brand-kit-panel {
-                flex-direction: column;
-                text-align: center;
-                padding: 24px;
-            }
-            .brand-kit-text {
-                max-width: 100%;
-            }
-            .brand-kit-text h3 {
-                justify-content: center;
-            }
-            .brand-kit-btn {
-                width: 100%;
-                text-align: center;
-            }
             .nav-links {
                 display: none;
             }
@@ -500,24 +440,21 @@
 </head>
 <body>
 
-    <!-- -->
     <!-- Navigation Menu -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo-container">
-                <!-- Smart Fallback logo image: if logo.png errors, show the elegant AE9 Labs fallback text -->
+                <!-- Smart Fallback logo image -->
                 <img src="logo.png" alt="AE9 logo" class="logo-image" id="brand-logo" onerror="this.style.display='none'; document.getElementById('brand-text-logo').style.display='flex'">
                 <div id="brand-text-logo" class="logo-text-fallback" style="display: none;">AE9<span> Labs</span></div>
             </a>
             <nav class="nav-links">
                 <a href="#showcase" class="nav-link">Showcase</a>
-                <a href="#brand-kit" class="nav-link">Brand Kit</a>
                 <a href="https://payhip.com/AE9Labs" target="_blank" class="shop-cta-btn">Access Storefront</a>
             </nav>
         </div>
     </header>
 
-    <!-- -->
     <!-- Brand Hero Module -->
     <section class="hero" id="intro">
         <div class="hero-inner">
@@ -555,7 +492,6 @@
         </div>
     </section>
 
-    <!-- -->
     <!-- Airtable Dynamic Portfolio Showroom -->
     <section class="catalog-container" id="showcase">
         <div class="catalog-header">
@@ -567,20 +503,20 @@
         <div id="resource-container" class="grid-container"></div>
     </section>
 
-    <!-- STAPLED BRAND KIT HUB -->
-    <section class="catalog-container" id="brand-kit" style="padding-top: 0;">
-        <div class="brand-kit-panel">
-            <div class="brand-kit-text">
-                <h3><span>STAPLED</span> The AE9 Master Brand Kit</h3>
-                <p>Looking to maintain cohesive visuals, luxury color palettes, and structured tech fonts across your own faceless screens and live presentations? Instantly claim our complete branding layout pack containing high-converting social layouts.</p>
+    <!-- SYSTEMS SUPPORT & CLEAR BOUNDARIES POLICY -->
+    <section class="policy-section">
+        <div class="policy-grid">
+            <div class="policy-card">
+                <h4><i class="fa-solid fa-wrench"></i> The 30-Day Asynchronous Alignment Guarantee</h4>
+                <p>Deploying technical environments can occasionally present minor local configuration adjustments. To protect your workflow, every template purchase includes <strong>2 complimentary asynchronous alignment audits</strong> within the first 30 days of purchase. Simply submit our secure support form, and our engineering desk will patch and return your verified code files within 48 business hours—no scheduling or live calls required.</p>
             </div>
-            <a href="https://payhip.com/b/p7zMX" target="_blank" class="brand-kit-btn">
-                <i class="fa-solid fa-box-open" style="margin-right: 8px;"></i> Access Brand Kit Assets
-            </a>
+            <div class="policy-card">
+                <h4><i class="fa-solid fa-handshake-slash"></i> Clear Boundaries Refund Policy</h4>
+                <p>Because our products deliver immediate, raw source-code structures that transfer full, unrestricted lifetime ownership and intellectual property directly to your possession, <strong>all sales are final</strong>. These systems are verified, fully functional, and engineered to eliminate recurring platform taxes permanently.</p>
+            </div>
         </div>
     </section>
 
-    <!-- -->
     <!-- Main Clean Footer -->
     <footer>
         <div class="footer-logo">AE9 Labs</div>
@@ -599,7 +535,7 @@
 
         const URL_ENDPOINT = `https://api.airtable.com/v0/${CONFIG.BASE_ID}/${encodeURIComponent(CONFIG.TABLE_NAME)}?filterByFormula=Status%3D%27Published%27`;
 
-        //        async function fetchResources() {
+        async function fetchResources() {
             const container = document.getElementById('resource-container');
             if (!container) return;
             
