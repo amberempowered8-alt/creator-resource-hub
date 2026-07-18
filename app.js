@@ -89,17 +89,16 @@ async function fetchResources() {
                 }
             }
             
-           // 🎯 THE RESOLUTION FIX: Force Airtable to serve the full premium resolution instead of a small thumbnail
-let imageUrl = '';
-if (fields['Cover Image'] && fields['Cover Image'].length > 0) {
-    const attachment = fields['Cover Image'][0];
-    // Check if the full-size configuration is available inside Airtable's nested payload object
-    if (attachment.thumbnails && attachment.thumbnails.full) {
-        imageUrl = attachment.thumbnails.full.url;
-    } else {
-        imageUrl = attachment.url; // Master fallback
-    }
-}
+            // 🎯 THE RESOLUTION FIX: Force Airtable to serve the full premium resolution instead of a small thumbnail
+            let imageUrl = '';
+            if (fields['Cover Image'] && fields['Cover Image'].length > 0) {
+                const attachment = fields['Cover Image'][0];
+                if (attachment.thumbnails && attachment.thumbnails.full) {
+                    imageUrl = attachment.thumbnails.full.url;
+                } else {
+                    imageUrl = attachment.url; // Master fallback
+                }
+            }
 
             // Build out the clean responsive layout template skeleton
             const cardHTML = `
