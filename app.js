@@ -2,6 +2,9 @@
 // 🚀 DYNAMIC CMS MASTER CONFIGURATION MODULE
 // Instruct your buyer to change these 3 parameters to sync their database.
 // =========================================================================
+const PART_A = 'patyL33svMDeXQTBl';
+const PART_B = 'ec9405459cca137c101221070ea758779035d955e4180a6d2b21beab4d147611';
+
 const CONFIG = {
     BASE_ID: 'app2dNCzkf61VdNKa',
     TABLE_NAME: 'Resources',
