@@ -1,117 +1,172 @@
-/* Core Reset & Global Theme Settings */
-body {
-    background-color: #0b0c10;
-    color: #ffffff;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+/* =========================================================================
+   🎨 PREMIUM SYSTEM ARCHITECTURE THEME
+   ========================================================================= */
+
+:root {
+    --bg-primary: #0a0b10;
+    --bg-secondary: #141622;
+    --bg-card: #1d2032;
+    --accent-neon: #ff007f;
+    --accent-hover: #e60072;
+    --text-main: #ffffff;
+    --text-muted: #a9b7c6;
+    --text-accent: #c5a880;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Header/Hero Styling */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+}
+
+/* Hero Header Framework */
 .hero-section {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(180deg, #1f2833 0%, #0b0c10 100%);
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #141622 0%, #0a0b10 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .hero-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     letter-spacing: -0.05em;
+    background: linear-gradient(135deg, #ffffff 0%, #a9b7c6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
-    color: #c5a880; /* Elegant subtle text accent */
-    max-width: 600px;
+    font-size: 1.2rem;
+    color: var(--text-accent);
+    max-width: 700px;
     margin: 0 auto;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
-/* Grid Layout & Container */
+/* Main Content Catalog Grid */
 .catalog-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
 .section-title {
-    font-size: 1.75rem;
-    margin-bottom: 30px;
-    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-neon);
+    border-radius: 2px;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 40px;
 }
 
-/* Premium Card Architecture */
+/* Premium Product Card UI */
 .card {
-    background-color: #1f2833;
-    border-radius: 12px;
+    background-color: var(--bg-card);
+    border-radius: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(255, 0, 127, 0.15);
+    border-color: rgba(255, 0, 127, 0.2);
 }
 
 .card-image {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-bottom: 2px solid #0b0c10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .card-content {
-    padding: 24px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .card-title {
-    font-size: 1.35rem;
-    font-weight: 600;
-    margin: 0 0 12px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
 }
 
 .card-description {
-    font-size: 0.95rem;
-    color: #a9b7c6;
-    line-height: 1.5;
-    margin: 0 0 24px 0;
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
     flex-grow: 1;
 }
 
-/* Vibrant Call-To-Action Button */
+/* Call-To-Action Transaction Button */
 .card-btn {
     display: block;
     text-align: center;
-    background-color: #ff007f; /* Hot neon pink */
+    background-color: var(--accent-neon);
     color: #ffffff;
     text-decoration: none;
-    padding: 14px;
-    border-radius: 8px;
+    padding: 16px;
+    border-radius: 10px;
     font-weight: 600;
-    transition: background-color 0.2s ease;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    box-shadow: 0 4px 12px rgba(255, 0, 127, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-btn:hover {
-    background-color: #e60072;
+    background-color: var(--accent-hover);
+    box-shadow: 0 6px 20px rgba(255, 0, 127, 0.5);
 }
 
-/* Loading States */
+/* Footer Section */
+.main-footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--bg-secondary);
+}
+
+/* Synchronous System Loading Display */
 .loading {
     text-align: center;
-    font-size: 1.1rem;
-    color: #a9b7c6;
-    padding: 40px;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    padding: 60px;
 }
