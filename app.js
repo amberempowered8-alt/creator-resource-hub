@@ -1,35 +1,21 @@
 // =========================================================================
-// 🚀 DYNAMIC CMS MASTER CONFIGURATION MODULE
-// Instruct your buyer to change these 3 parameters to sync their database.
+// 🚀 CLEAN CMS ARCHITECTURE CONFIGURATION
 // =========================================================================
-const PART_A = 'patyL33svMDeXQTBl';
-const PART_B = 'ec9405459cca137c101221070ea758779035d955e4180a6d2b21beab4d147611';
-
 const CONFIG = {
     BASE_ID: 'app2dNCzkf61VdNKa',
     TABLE_NAME: 'Resources',
-    // ⚠️ CRITICAL NOTICE TO BUYER: Use an Airtable Personal Access Token (PAT) 
-    // with strictly scoped *Read-Only* (data.records:read) access for security.
     TOKEN: 'patyL33svMDeXQTBl.ec9405459cca137c101221070ea758779035d955e4180a6d2b21beab4d147611'
 };
 
-// Construct the secure, filtered REST API gateway endpoint
 const URL_ENDPOINT = `https://api.airtable.com/v0/${CONFIG.BASE_ID}/${encodeURIComponent(CONFIG.TABLE_NAME)}?filterByFormula=Status%3D%27Published%27`;
 
-/**
- * Executes a real-time data fetch from the configured Airtable database architecture,
- * processes the returned record payloads, and renders optimized responsive cards.
- */
 async function fetchResources() {
     const container = document.getElementById('resource-container');
-    
-    // Safety check: Exit gracefully if the mounting point does not exist in the HTML DOM
-    if (!container) {
-        console.warn("Application Initialization Warning: Mount target element '#resource-container' was not found in the DOM.");
-        return;
-    }
+    if (!container) return;
     
     try {
+        container.innerHTML = '<p class="loading">Syncing live catalog entries...</p>';
+
         const response = await fetch(URL_ENDPOINT, {
             headers: {
                 'Authorization': `Bearer ${CONFIG.TOKEN}`,
@@ -37,54 +23,46 @@ async function fetchResources() {
             }
         });
 
-        if (!response.ok) {
-            throw new Error(`Airtable Sync Protocol Exception. Status Code: ${response.status}`);
-        }
-
+        if (!response.ok) throw new Error(`Gateway Error: ${response.status}`);
         const data = await response.json();
         
-        // Purge the initial fallback loading state
-        container.innerHTML = '';
+        container.innerHTML = ''; // Wipe loading indicator
 
-        // Handle empty database returns cleanly
         if (!data.records || data.records.length === 0) {
-            container.innerHTML = `<p class="loading">No live assets found. Set item status to 'Published' inside Airtable to display.</p>`;
+            container.innerHTML = `<p class="loading">No published products found. Set item status to 'Published' inside Airtable to display.</p>`;
             return;
         }
 
-        // Loop over the published data records and systematically render the layout card UI
         data.records.forEach(record => {
             const fields = record.fields;
             
-            // Safe extraction fallbacks to maintain visual structural integrity if data fields are left blank
-            const name = fields['Resource Name'] || 'Untitled Resource Asset';
-            const category = fields['Category'] || 'Resource';
+            const name = fields['Resource Name'] || 'Untitled System Asset';
             const description = fields['Description'] || 'No description provided for this dynamic resource item.';
             
-            // Smart Link Extractor: Cleanse lookups, syncs, and prevent the "generated" loop
+            // Extract the direct access target pathway
             let link = '#';
             if (fields['Access Link']) {
                 if (Array.isArray(fields['Access Link'])) {
-                    link = fields['Access Link'][0] || '#';
+                    link = fields['Access Link'][0];
                 } else if (typeof fields['Access Link'] === 'object') {
-                    link = fields['Access Link'].url || Object.values(fields['Access Link'])[0] || '#';
+                    link = fields['Access Link'].url || Object.values(fields['Access Link'])[0];
                 } else {
                     link = fields['Access Link'];
                 }
             }
 
-            // Cleanse Synced Meta-tags: If Airtable sends "generated", override it with your real Payhip checkout
+            // Fallback checking framework override
             if (typeof link === 'string' && (link.includes('generated') || link === '#')) {
                 if (name.includes("3P's")) {
                     link = 'https://payhip.com/b/Zf4Bz';
                 } else if (name.includes("Headless") || name.includes("Storefront")) {
                     link = 'https://payhip.com/b/p7zMX';
                 } else {
-                    link = 'https://payhip.com/b/p7zMX'; // Master fallback
+                    link = 'https://payhip.com/b/p7zMX';
                 }
             }
 
-            // Absolute URL Guard: Force external routing
+            // Clean spacing and absolute routing safety paths
             if (link !== '#' && typeof link === 'string') {
                 link = link.trim();
                 if (!link.startsWith('http://') && !link.startsWith('https://')) {
@@ -92,51 +70,42 @@ async function fetchResources() {
                 }
             }
             
-            // 🎯 THE RESOLUTION FIX: Force Airtable to serve the full premium resolution instead of a small thumbnail
+            // Target the premium attachment image resolution path
             let imageUrl = '';
             if (fields['Cover Image'] && fields['Cover Image'].length > 0) {
                 const attachment = fields['Cover Image'][0];
                 if (attachment.thumbnails && attachment.thumbnails.full) {
                     imageUrl = attachment.thumbnails.full.url;
                 } else {
-                    imageUrl = attachment.url; // Master fallback
+                    imageUrl = attachment.url;
                 }
             }
 
-            // Build out the clean responsive layout template skeleton using original layout structure
+            // Construct and bind the element card cleanly
             const cardHTML = `
-                <div class="card card-anim">
+                <div class="card">
                     ${imageUrl 
                         ? `<img src="${imageUrl}" alt="${name}" class="card-image" loading="lazy">` 
-                        : '<div class="card-image" style="background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); flex-shrink: 0;"></div>'
+                        : '<div class="card-image" style="background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%);"></div>'
                     }
                     <div class="card-content">
                         <h3 class="card-title">${name}</h3>
                         <p class="card-description">${description}</p>
-                        <a href="${link}" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           style="display: block; text-align: center; color: #ffffff !important; text-decoration: none !important;" 
-                           class="card-btn">
+                        <a href="${link}" target="_blank" rel="noopener noreferrer" class="card-btn">
                            Access Resource
                         </a>
                     </div>
                 </div>
             `;
             
-            // Inject the completed asset cleanly right into the grid framework
             container.innerHTML += cardHTML;
         });
 
     } catch (error) {
-        console.error('Data Transmission Error:', error);
-        container.innerHTML = `
-            <p class="loading" style="color: #ef4444; font-weight: 600;">
-                🔒 Secure Database Gateway Connection Failure. Check credentials inside app.js configuration panel.
-            </p>
-        `;
+        console.error('System Exception:', error);
+        container.innerHTML = `<p class="loading" style="color: #ff4d4d;">🔒 Connection baseline dropped. Check configurations.</p>`;
     }
 }
 
-// Instantiate the application process instantly upon script initialization
+// Fire application instantly upon module initialization
 fetchResources();
