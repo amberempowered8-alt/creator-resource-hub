@@ -578,26 +578,16 @@
                     const name = fields['Resource Name'] || 'Untitled Resource Asset';
                     const description = fields['Description'] || 'No description provided for this dynamic resource item.';
                     
-                    // Direct access target pathway configuration
+                    // Direct access target pathway configuration - Extracts raw URL accurately from Airtable
                     let link = '#';
                     if (fields['Access Link']) {
-                        if (Array.isArray(fields['Access Link'])) {
-                            link = fields['Access Link'][0];
-                        } else if (typeof fields['Access Link'] === 'object') {
-                            link = fields['Access Link'].url || Object.values(fields['Access Link'])[0];
-                        } else {
+                        if (typeof fields['Access Link'] === 'string') {
                             link = fields['Access Link'];
-                        }
-                    }
-
-                    // Strict redirect overrides directly to Payhip Services
-                    if (typeof link === 'string' && (link.includes('generated') || link === '#')) {
-                        if (name.includes("3P's")) {
-                            link = 'https://payhip.com/b/Zf4Bz';
-                        } else if (name.includes("Headless") || name.includes("Storefront")) {
-                            link = 'https://payhip.com/b/p7zMX';
-                        } else {
-                            link = 'https://payhip.com/b/p7zMX';
+                        } else if (Array.isArray(fields['Access Link'])) {
+                            const firstItem = fields['Access Link'][0];
+                            link = typeof firstItem === 'object' ? (firstItem.url || firstItem.text || '#') : firstItem;
+                        } else if (typeof fields['Access Link'] === 'object') {
+                            link = fields['Access Link'].url || Object.values(fields['Access Link'])[0] || '#';
                         }
                     }
 
@@ -649,5 +639,3 @@
         // Fire database query instantly
         fetchResources();
     </script>
-</body>
-</html>
