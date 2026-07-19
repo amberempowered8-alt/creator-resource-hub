@@ -535,7 +535,6 @@
         <div class="footer-logo">AE9 Labs</div>
         <p>&copy; 2026 Amber Empowered LLC. All Rights Reserved. All systems engineered under local Phoenix administrative compliance.</p>
     </footer>
-
 <!-- =========================================================================
          ⚙️ SECURE AIRTABLE DYNAMIC POPULATOR ENGINE
          ========================================================================= -->
@@ -578,33 +577,35 @@
                     const name = fields['Resource Name'] || 'Untitled Resource Asset';
                     const description = fields['Description'] || 'No description provided for this dynamic resource item.';
                     
-                    // Direct access target pathway configuration - FOOLPROOF FIX FOR 'generated/' PATHS
+                    // --- DIRECT RAW LINK EXTRACTION ---
                     let link = '#';
-                    if (fields['Access Link']) {
-                        let rawLink = '';
-                        if (typeof fields['Access Link'] === 'string') {
-                            rawLink = fields['Access Link'];
-                        } else if (Array.isArray(fields['Access Link'])) {
-                            const firstItem = fields['Access Link'][0];
-                            rawLink = typeof firstItem === 'object' ? (firstItem.url || firstItem.text || '') : firstItem;
-                        } else if (typeof fields['Access Link'] === 'object') {
-                            rawLink = fields['Access Link'].url || Object.values(fields['Access Link'])[0] || '';
+                    const rawAccessLink = fields['Access Link'];
+
+                    if (rawAccessLink) {
+                        let extracted = '';
+                        if (typeof rawAccessLink === 'string') {
+                            extracted = rawAccessLink;
+                        } else if (Array.isArray(rawAccessLink)) {
+                            // Extract first element from array or lookup
+                            const item = rawAccessLink[0];
+                            extracted = typeof item === 'object' ? (item.url || item.text || item.value || JSON.stringify(item)) : String(item);
+                        } else if (typeof rawAccessLink === 'object') {
+                            extracted = rawAccessLink.url || rawAccessLink.text || rawAccessLink.value || '';
                         }
 
-                        if (rawLink && typeof rawLink === 'string') {
-                            rawLink = rawLink.trim();
-                            // If link is bad or contains 'generated', keep as '#' to avoid browser error
-                            if (rawLink.includes('generated') || rawLink === '') {
-                                link = '#';
-                            } else if (!rawLink.startsWith('http://') && !rawLink.startsWith('https://')) {
-                                link = 'https://' + rawLink;
+                        // Clean quotes, brackets, and whitespace from Airtable objects
+                        extracted = String(extracted).replace(/[\[\]"']/g, '').trim();
+
+                        if (extracted && extracted !== '#' && !extracted.includes('generated')) {
+                            if (!extracted.startsWith('http://') && !extracted.startsWith('https://')) {
+                                link = 'https://' + extracted;
                             } else {
-                                link = rawLink;
+                                link = extracted;
                             }
                         }
                     }
 
-                    // Cover Image extraction
+                    // --- COVER IMAGE EXTRACTION ---
                     let imageUrl = '';
                     if (fields['Cover Image'] && fields['Cover Image'].length > 0) {
                         const attachment = fields['Cover Image'][0];
@@ -615,7 +616,7 @@
                         }
                     }
 
-                    // Build and append the showcased card elements
+                    // --- RENDER CARD ---
                     const cardHTML = `
                         <div class="card">
                             ${imageUrl 
