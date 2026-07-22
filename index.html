@@ -257,6 +257,88 @@
             line-height: 1.6;
         }
 
+        /* System Architecture Section Styles */
+        .architecture-section {
+            padding: 60px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+        }
+
+        .architecture-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .architecture-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-cyber);
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .architecture-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+        }
+
+        .architecture-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .architecture-description strong {
+            color: #ffffff;
+        }
+
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .architecture-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 28px 20px;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .architecture-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-cyber);
+        }
+
+        .card-icon-emoji {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+        }
+
+        .architecture-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .architecture-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
         /* Portfolio Dynamic Showroom */
         .catalog-container {
             max-width: 1200px;
@@ -289,6 +371,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 30px;
+            align-items: stretch; /* Forces equal heights on cards */
         }
 
         /* Cyber Product Cards */
@@ -330,12 +413,13 @@
             color: #ffffff;
         }
 
+        /* Crucial fix to force text to top and button to bottom */
         .card-description {
             font-size: 14px;
             color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: 24px;
-            flex-grow: 1;
+            margin-bottom: auto; /* Pushes button to bottom naturally without weird gaps */
+            padding-bottom: 24px;
         }
 
         .card-btn {
@@ -350,6 +434,7 @@
             font-weight: 600;
             font-size: 14px;
             transition: all 0.3s ease;
+            margin-top: auto;
         }
 
         .card-btn:hover {
@@ -366,21 +451,20 @@
             padding: 0 20px;
         }
 
-        /* Bolder, highly visual styling (image_0d6c2b.png) */
         .policy-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             background-color: var(--bg-secondary);
-            border: 2px dashed rgba(69, 243, 255, 0.3); /* Made dashed lines more intense */
+            border: 2px dashed rgba(69, 243, 255, 0.3);
             border-radius: 16px;
-            padding: 48px; /* Extra breathing space inside the box */
+            padding: 48px;
             position: relative;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
         .policy-card h4 {
-            font-size: 20px; /* Bolder, clearer header style */
+            font-size: 20px;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 16px;
@@ -392,18 +476,18 @@
 
         .policy-card h4 i {
             color: var(--accent-cyber);
-            font-size: 18px; /* Slightly larger icons */
+            font-size: 18px;
             text-shadow: 0 0 10px rgba(69, 243, 255, 0.4);
         }
 
         .policy-card p {
-            font-size: 15px; /* Boosted copy size so it never looks like hidden fine print */
-            color: #cbd5e1; /* Increased text brightness for maximum contrast readability */
+            font-size: 15px;
+            color: #cbd5e1;
             line-height: 1.7;
         }
 
         .policy-card p strong {
-            color: var(--accent-cyber); /* Highlights specific terms visually */
+            color: var(--accent-cyber);
         }
 
         /* Footer Section */
@@ -478,13 +562,6 @@
                 <strong>At AE9 Labs, we configure clean, headless digital architectures and custom workflows so your business systems keep pace with your growth.</strong> 
                 Own your data, stop renting basic bio-links, and claim a streamlined home base that organizes everything as you scale.
             </p>
-            
-            <!-- DELETE OR REMOVE THIS LINK BLOCK BELOW -->
-            <!-- 
-            <a href="https://payhip.com/AE9Labs" target="_blank" class="shop-cta-btn" style="padding: 14px 32px; font-size: 15px;">
-                <i class="fa-solid fa-cart-shopping" style="margin-right: 8px;"></i> View Services & Blueprint Templates
-            </a> 
-            -->
         </div>
     </section>
 
@@ -505,6 +582,38 @@
                 <div class="pillar-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                 <h3>Brand Asset Packs</h3>
                 <p>Premium copywriting blueprints, automated content vault frameworks, and visuals designed for faceless conversions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: SYSTEM ARCHITECTURE OVERVIEW SECTION -->
+    <section class="architecture-section">
+        <div class="architecture-container">
+            <span class="architecture-tag">// SOVEREIGN DIGITAL INFRASTRUCTURE</span>
+            <h2 class="architecture-title">Stop Renting Your Business. Own Your Code.</h2>
+            <p class="architecture-description">
+                Most digital creators are trapped paying $300+/month in software "platform taxes" just to host digital products and run basic marketing. 
+                <strong>AE9 Labs</strong> builds sovereign, open-source operating systems engineered for <strong>$0 in recurring monthly platform fees</strong>.
+            </p>
+
+            <div class="architecture-grid">
+                <div class="architecture-card">
+                    <div class="card-icon-emoji">💻</div>
+                    <h3>Sovereign Frontend</h3>
+                    <p>Lightning-fast, headless storefronts featuring interactive Virtual Tour VSLs. Hosted 100% free forever on GitHub Pages.</p>
+                </div>
+
+                <div class="architecture-card">
+                    <div class="card-icon-emoji">📱</div>
+                    <h3>Phone-Controlled CMS</h3>
+                    <p>Manage inventory, update pricing, and log client support in real time straight from a free Airtable mobile app.</p>
+                </div>
+
+                <div class="architecture-card">
+                    <div class="card-icon-emoji">🤖</div>
+                    <h3>Autonomous Video Engine</h3>
+                    <p>Cloud-based AI workflows (Make.com + Gemini + Shotstack) that manufacture high-converting short-form videos 24/7 on pure autopilot.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -539,7 +648,8 @@
         <div class="footer-logo">AE9 Labs</div>
         <p>&copy; 2026 Amber Empowered LLC. All Rights Reserved. All systems engineered under local Phoenix administrative compliance.</p>
     </footer>
-<!-- =========================================================================
+
+    <!-- =========================================================================
          ⚙️ SECURE AIRTABLE DYNAMIC POPULATOR ENGINE
          ========================================================================= -->
     <script>
@@ -590,14 +700,12 @@
                         if (typeof rawAccessLink === 'string') {
                             extracted = rawAccessLink;
                         } else if (Array.isArray(rawAccessLink)) {
-                            // Extract first element from array or lookup
                             const item = rawAccessLink[0];
                             extracted = typeof item === 'object' ? (item.url || item.text || item.value || JSON.stringify(item)) : String(item);
                         } else if (typeof rawAccessLink === 'object') {
                             extracted = rawAccessLink.url || rawAccessLink.text || rawAccessLink.value || '';
                         }
 
-                        // Clean quotes, brackets, and whitespace from Airtable objects
                         extracted = String(extracted).replace(/[\[\]"']/g, '').trim();
 
                         if (extracted && extracted !== '#' && !extracted.includes('generated')) {
@@ -649,3 +757,5 @@
         // Fire database query instantly
         fetchResources();
     </script>
+</body>
+</html>
