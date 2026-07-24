@@ -9,7 +9,7 @@ from google.genai import types
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 AIRTABLE_PAT = os.environ.get("AIRTABLE_PAT")
 AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID")
-AIRTABLE_TABLE_NAME = os.environ.get("CONTENT_TABLE_NAME", "Content Calendar")
+AIRTABLE_TABLE_NAME = os.environ.get("CONTENT_TABLE_NAME", "Content Queue")
 
 # Initialize Gemini Client
 client = genai.Client(api_key=GEMINI_API_KEY)
