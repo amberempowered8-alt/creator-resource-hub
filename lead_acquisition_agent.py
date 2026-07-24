@@ -6,9 +6,9 @@ from google.genai import types
 # ==========================================
 # ⚙️ CONFIGURATION & API KEYS
 # ==========================================
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY_HERE")
-AIRTABLE_PAT = os.environ.get("AIRTABLE_PAT", "YOUR_AIRTABLE_PAT_HERE")
-AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID", "YOUR_BASE_ID_HERE")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+AIRTABLE_PAT = os.environ.get("AIRTABLE_PAT")
+AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID")
 AIRTABLE_TABLE_NAME = os.environ.get("AIRTABLE_TABLE_NAME", "Leads")
 
 # Initialize Gemini Client
