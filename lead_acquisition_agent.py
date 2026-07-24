@@ -107,15 +107,14 @@ def save_lead_to_airtable(prospect, score, pitch):
     }
 
     payload = {
-        "fields": {
-            "Business Name": prospect["business_name"],
-            "Website": prospect["website"],
-            "Niche": prospect["niche"],
-            "Tech Score": str(score),
-            "Custom DM Pitch": pitch,
-            "Status": "New Lead"
-        }
+    "fields": {
+        "Business Name": prospect["business_name"],
+        "Tech Gap Score": int(score) if str(score).isdigit() else 7,
+        "Value Pitch": pitch,
+        "Website": prospect["website"],
+        "Status": "Converted"
     }
+}
 
     try:
         response = requests.post(url, json=payload, headers=headers)
