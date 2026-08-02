@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE9 Labs // Sovereign Merch Fulfillment Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #08090d;
+            --bg-secondary: #0b0c11;
+            --bg-card: #121420;
+            --accent-neon: #ff007f;
+            --accent-cyber: #45f3ff;
+            --text-main: #ffffff;
+            --text-muted: #a9b7c6;
+            --border-glow: rgba(69, 243, 255, 0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 60px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-cyber);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyber);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .file-upload {
+            border: 2px dashed var(--border-glow);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            background: rgba(69, 243, 255, 0.02);
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .file-upload label {
+            cursor: pointer;
+            color: var(--accent-cyber);
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-neon) 0%, #e60072 100%);
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 127, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span class="tag">// Sovereign Physical Fulfillment</span>
+    <h1>Submit Brand Assets & Sizes</h1>
+    <p class="subtitle">Enter your order details below to trigger your automated print production pipeline.</p>
+
+    <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+        
+        <!-- REPLACE THIS WITH YOUR WEB3FORMS ACCESS KEY -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+        
+        <!-- Optional: Redirect after submission -->
+        <input type="hidden" name="subject" value="New Brand Kit Intake Submission - AE9 Labs">
+        <input type="hidden" name="from_name" value="AE9 Intake Portal">
+
+        <!-- Customer Identity -->
+        <div class="form-group">
+            <label>Payhip Order ID / Full Name</label>
+            <input type="text" name="customer_name" placeholder="John Doe (#PAYHIP-1234)" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="john@yourdomain.com" required>
+        </div>
+
+        <!-- Apparel Customization -->
+        <div class="form-row">
+            <div class="form-group">
+                <label>Hoodie / Tee Size</label>
+                <select name="apparel_size" required>
+                    <option value="" disabled selected>Select size...</option>
+                    <option value="S">Small (S)</option>
+                    <option value="M">Medium (M)</option>
+                    <option value="L">Large (L)</option>
+                    <option value="XL">Extra Large (XL)</option>
+                    <option value="2XL">2XL</option>
+                    <option value="3XL">3XL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Apparel Base Color</label>
+                <select name="apparel_color" required>
+                    <option value="Dark Mode Black">Dark Mode Black</option>
+                    <option value="Heather Gray">Heather Gray</option>
+                    <option value="Clean White">Clean White</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Logo File Upload -->
+        <div class="form-group">
+            <label>Upload High-Res Logo (PNG or SVG with Transparent BG)</label>
+            <div class="file-upload">
+                <input type="file" id="logo-file" name="attachment" accept="image/png, image/svg+xml" required>
+                <label for="logo-file">📁 Drag & drop or click to upload logo file</label>
+            </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="form-group">
+            <label>Shipping Street Address</label>
+            <input type="text" name="shipping_address" placeholder="123 Main St, Suite 100" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>City, State, Zip Code</label>
+                <input type="text" name="city_state_zip" placeholder="Phoenix, AZ 85001" required>
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                <input type="text" name="country" value="United States" required>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">⚡ Launch Production Pipeline</button>
+    </form>
+</div>
+
+</body>
+</html>
