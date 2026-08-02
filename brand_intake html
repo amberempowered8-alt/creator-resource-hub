@@ -156,7 +156,7 @@
     <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
         
         <!-- REPLACE THIS WITH YOUR WEB3FORMS ACCESS KEY -->
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+        <input type="hidden" name="access_key" value="668cc03a-66c2-4881-9a95-4537933335fa">
         
         <!-- Optional: Redirect after submission -->
         <input type="hidden" name="subject" value="New Brand Kit Intake Submission - AE9 Labs">
