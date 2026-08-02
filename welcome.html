@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE9 Labs // Welcome & Merch Setup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #08090d;
+            --bg-card: #121420;
+            --accent-neon: #ff007f;
+            --accent-cyber: #45f3ff;
+            --text-main: #ffffff;
+            --text-muted: #a9b7c6;
+            --border-glow: rgba(69, 243, 255, 0.15);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 48px 40px;
+            max-width: 580px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-cyber);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        h1 {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        .btn-primary {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-neon) 0%, #e60072 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 4px 20px rgba(255, 0, 127, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 16px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.6);
+        }
+        .btn-secondary {
+            display: inline-block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            color: var(--accent-cyber);
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <span class="tag">// Access Granted</span>
+    <h1>Thank You for Choosing AE9 Labs!</h1>
+    <p>
+        Your order is confirmed! Your digital download receipt has been delivered directly to your email inbox.<br><br>
+        As part of your brand package, you also have access to custom-branded physical merchandise (apparel, tech cases, desk mats, and gear) printed with your unique logo.
+    </p>
+
+    <a href="brand_intake.html" class="btn-primary">⚡ Claim & Customize Physical Merch Bundle</a>
+    <a href="#" onclick="alert('Your digital files and SOPs are available in your Payhip email receipt!');" class="btn-secondary">Skip Merch Setup & Access Digital Assets Only →</a>
+</div>
+
+</body>
+</html>
