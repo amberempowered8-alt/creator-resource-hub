@@ -80,6 +80,7 @@
 
         input[type="text"],
         input[type="email"],
+        input[type="number"],
         select,
         textarea {
             width: 100%;
@@ -144,6 +145,16 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 0, 127, 0.5);
         }
+
+        .section-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--accent-cyber);
+            margin: 30px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(69, 243, 255, 0.2);
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -155,10 +166,10 @@
 
     <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
         
-        <!-- REPLACE THIS WITH YOUR WEB3FORMS ACCESS KEY -->
+        <!-- WEB3FORMS ACCESS KEY -->
         <input type="hidden" name="access_key" value="668cc03a-66c2-4881-9a95-4537933335fa">
         
-        <!-- Optional: Redirect after submission -->
+        <!-- Submission Headers -->
         <input type="hidden" name="subject" value="New Brand Kit Intake Submission - AE9 Labs">
         <input type="hidden" name="from_name" value="AE9 Intake Portal">
 
@@ -173,10 +184,12 @@
             <input type="email" name="email" placeholder="john@yourdomain.com" required>
         </div>
 
-        <!-- Apparel Customization -->
+        <!-- Apparel Options -->
+        <div class="section-header">01. Apparel Sizing & Colors</div>
+        
         <div class="form-row">
             <div class="form-group">
-                <label>Hoodie / Tee Size</label>
+                <label>Apparel Size</label>
                 <select name="apparel_size" required>
                     <option value="" disabled selected>Select size...</option>
                     <option value="S">Small (S)</option>
@@ -185,19 +198,111 @@
                     <option value="XL">Extra Large (XL)</option>
                     <option value="2XL">2XL</option>
                     <option value="3XL">3XL</option>
+                    <option value="4XL">4XL (Tee Only)</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Apparel Base Color</label>
-                <select name="apparel_color" required>
-                    <option value="Dark Mode Black">Dark Mode Black</option>
-                    <option value="Heather Gray">Heather Gray</option>
-                    <option value="Clean White">Clean White</option>
+                <label>Hoodie Color (7-Color Line)</label>
+                <select name="hoodie_color">
+                    <option value="N/A" selected>N/A - Not Ordering Hoodie</option>
+                    <option value="Pepper">Pepper</option>
+                    <option value="Peachy">Peachy</option>
+                    <option value="Neon Violet">Neon Violet</option>
+                    <option value="Grey">Grey</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                    <option value="Hydrangea">Hydrangea</option>
                 </select>
             </div>
         </div>
 
-        <!-- Logo File Upload -->
+        <div class="form-group">
+            <label>T-Shirt Color (13-Color Line)</label>
+            <select name="tshirt_color">
+                <option value="N/A" selected>N/A - Not Ordering T-Shirt</option>
+                <option value="Graphite">Graphite</option>
+                <option value="Sage">Sage</option>
+                <option value="Violet">Violet</option>
+                <option value="Blossom">Blossom</option>
+                <option value="Light Green">Light Green</option>
+                <option value="White">White</option>
+                <option value="Black">Black</option>
+                <option value="Midnight">Midnight</option>
+                <option value="Crunchberry">Crunchberry</option>
+                <option value="Khaki">Khaki</option>
+                <option value="Denim">Denim</option>
+                <option value="Grey">Grey</option>
+                <option value="Washed Denim">Washed Denim</option>
+            </select>
+        </div>
+
+        <!-- Tech Accessories & Customization -->
+        <div class="section-header">02. Hardware & Tech Gear</div>
+
+        <div class="form-group">
+            <label>Phone Case Model & Finish</label>
+            <select name="phone_model">
+                <option value="N/A" selected>N/A - Not Ordering Phone Case</option>
+                
+                <optgroup label="Apple iPhone">
+                    <option value="iPhone 15 Pro">iPhone 15 Pro</option>
+                    <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
+                    <option value="iPhone 14">iPhone 14</option>
+                    <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+                    <option value="iPhone 13">iPhone 13</option>
+                    <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+                </optgroup>
+                
+                <optgroup label="Samsung Galaxy">
+                    <option value="Samsung Galaxy S25 - Glossy">Samsung Galaxy S25 (Glossy)</option>
+                    <option value="Samsung Galaxy S25 - Matte">Samsung Galaxy S25 (Matte)</option>
+                    <option value="Samsung Galaxy S25 Plus">Samsung Galaxy S25 Plus</option>
+                    <option value="Samsung Galaxy S25 Ultra">Samsung Galaxy S25 Ultra</option>
+                </optgroup>
+
+                <optgroup label="Google Pixel">
+                    <option value="Google Pixel 9 Pro XL">Google Pixel 9 Pro XL</option>
+                    <option value="Google Pixel 8">Google Pixel 8</option>
+                    <option value="Google Pixel 8 Pro">Google Pixel 8 Pro</option>
+                    <option value="Google Pixel 7">Google Pixel 7</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Other Phone Model / Custom Sizing Notes (Optional)</label>
+            <input type="text" name="phone_model_custom" placeholder="e.g., iPhone 12 Pro Max or special request">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Laptop Case Size</label>
+                <select name="laptop_case_size">
+                    <option value="N/A" selected>N/A - Not Ordering</option>
+                    <option value="13 Inch">13" Sleeve</option>
+                    <option value="15 Inch">15" Sleeve</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Sticker Pack Quantity</label>
+                <select name="sticker_quantity">
+                    <option value="N/A" selected>N/A - Not Ordering</option>
+                    <option value="1">1 Sticker</option>
+                    <option value="5">5 Pack</option>
+                    <option value="10">10 Pack</option>
+                    <option value="20">20 Pack</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Custom Text / Tagline for Laptop Case (Personalization)</label>
+            <input type="text" name="laptop_case_text" placeholder="e.g., AE9 LABS // FOUNDER EDITION">
+        </div>
+
+        <!-- Brand Assets -->
+        <div class="section-header">03. Brand Assets</div>
+
         <div class="form-group">
             <label>Upload High-Res Logo (PNG or SVG with Transparent BG)</label>
             <div class="file-upload">
@@ -207,6 +312,8 @@
         </div>
 
         <!-- Shipping Address -->
+        <div class="section-header">04. Shipping Destination</div>
+
         <div class="form-group">
             <label>Shipping Street Address</label>
             <input type="text" name="shipping_address" placeholder="123 Main St, Suite 100" required>
