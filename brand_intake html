@@ -164,12 +164,10 @@
     <h1>Submit Brand Assets & Sizes</h1>
     <p class="subtitle">Enter your order details below to trigger your automated print production pipeline.</p>
 
-    <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+    <!-- UPDATED ACTION TO POINT DIRECTLY TO MAKE WEBHOOK -->
+    <form action="https://hook.us2.make.com/3r0evdq1t6mqkjmu7kjplhq3o987g7qb" method="POST" enctype="multipart/form-data">
         
-        <!-- WEB3FORMS ACCESS KEY -->
-        <input type="hidden" name="access_key" value="668cc03a-66c2-4881-9a95-4537933335fa">
-        
-        <!-- Submission Headers -->
+        <!-- Submission Metadata -->
         <input type="hidden" name="subject" value="New Brand Kit Intake Submission - AE9 Labs">
         <input type="hidden" name="from_name" value="AE9 Intake Portal">
 
