@@ -31,7 +31,7 @@
         }
 
         .container {
-            max-width: 680px;
+            max-width: 720px;
             margin: 0 auto;
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
@@ -155,26 +155,49 @@
             border-bottom: 1px solid rgba(69, 243, 255, 0.2);
             text-transform: uppercase;
         }
+
+        .add-row-btn {
+            background: transparent;
+            border: 1px solid var(--accent-cyber);
+            color: var(--accent-cyber);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        .add-row-btn:hover {
+            background: rgba(69, 243, 255, 0.1);
+        }
+
+        .item-row {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <span class="tag">// Sovereign Physical Fulfillment</span>
-    <h1>Submit Brand Assets & Sizes</h1>
-    <p class="subtitle">Enter your order details below to trigger your automated print production pipeline.</p>
+    <h1>Custom Merch Order & Intake Matrix</h1>
+    <p class="subtitle">Specify exact item quantities, colorways, and sizes for your team or brand run.</p>
 
-    <!-- UPDATED ACTION TO POINT DIRECTLY TO MAKE WEBHOOK -->
     <form action="https://hook.us2.make.com/3r0evdq1t6mqkjmu7kjplhq3o987g7qb" method="POST" enctype="multipart/form-data">
         
         <!-- Submission Metadata -->
-        <input type="hidden" name="subject" value="New Brand Kit Intake Submission - AE9 Labs">
-        <input type="hidden" name="from_name" value="AE9 Intake Portal">
+        <input type="hidden" name="subject" value="New Custom Merch Order Submission - AE9 Labs">
 
         <!-- Customer Identity -->
         <div class="form-group">
-            <label>Payhip Order ID / Full Name</label>
-            <input type="text" name="customer_name" placeholder="John Doe (#PAYHIP-1234)" required>
+            <label>Payhip Order ID / Company Name</label>
+            <input type="text" name="customer_name" placeholder="Acme Corp (#PAYHIP-1234)" required>
         </div>
 
         <div class="form-group">
@@ -182,123 +205,47 @@
             <input type="email" name="email" placeholder="john@yourdomain.com" required>
         </div>
 
-        <!-- Apparel Options -->
-        <div class="section-header">01. Apparel Sizing & Colors</div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label>Apparel Size</label>
-                <select name="apparel_size" required>
-                    <option value="" disabled selected>Select size...</option>
-                    <option value="S">Small (S)</option>
-                    <option value="M">Medium (M)</option>
-                    <option value="L">Large (L)</option>
-                    <option value="XL">Extra Large (XL)</option>
-                    <option value="2XL">2XL</option>
-                    <option value="3XL">3XL</option>
-                    <option value="4XL">4XL (Tee Only)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Hoodie Color (7-Color Line)</label>
-                <select name="hoodie_color">
-                    <option value="N/A" selected>N/A - Not Ordering Hoodie</option>
-                    <option value="Pepper">Pepper</option>
-                    <option value="Peachy">Peachy</option>
-                    <option value="Neon Violet">Neon Violet</option>
-                    <option value="Grey">Grey</option>
-                    <option value="White">White</option>
-                    <option value="Black">Black</option>
-                    <option value="Hydrangea">Hydrangea</option>
-                </select>
-            </div>
+        <!-- Section 01: Detailed Apparel Sizing Matrix -->
+        <div class="section-header">01. Detailed Apparel Sizing & Quantities</div>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+            Enter your exact size, color, and quantity breakdown below (e.g., 5 L in Grey, 12 M in Black, 2 M in White, 80 L in Green).
+        </p>
+
+        <div class="form-group">
+            <label>T-Shirt Breakdown (Quantities, Colors & Sizes)</label>
+            <textarea name="tshirt_custom_breakdown" rows="3" placeholder="e.g.,&#10;5 x Large (Grey)&#10;12 x Medium (Black)&#10;80 x Large (Green)"></textarea>
         </div>
 
         <div class="form-group">
-            <label>T-Shirt Color (13-Color Line)</label>
-            <select name="tshirt_color">
-                <option value="N/A" selected>N/A - Not Ordering T-Shirt</option>
-                <option value="Graphite">Graphite</option>
-                <option value="Sage">Sage</option>
-                <option value="Violet">Violet</option>
-                <option value="Blossom">Blossom</option>
-                <option value="Light Green">Light Green</option>
-                <option value="White">White</option>
-                <option value="Black">Black</option>
-                <option value="Midnight">Midnight</option>
-                <option value="Crunchberry">Crunchberry</option>
-                <option value="Khaki">Khaki</option>
-                <option value="Denim">Denim</option>
-                <option value="Grey">Grey</option>
-                <option value="Washed Denim">Washed Denim</option>
-            </select>
+            <label>Hoodie Breakdown (Quantities, Colors & Sizes)</label>
+            <textarea name="hoodie_custom_breakdown" rows="3" placeholder="e.g.,&#10;3 x XL (Pepper)&#10;10 x Medium (Neon Violet)"></textarea>
         </div>
 
-        <!-- Tech Accessories & Customization -->
-        <div class="section-header">02. Hardware & Tech Gear</div>
+        <!-- Section 02: Hardware, Accessories & Custom Gear -->
+        <div class="section-header">02. Hardware & Custom Gear Quantities</div>
 
         <div class="form-group">
-            <label>Phone Case Model & Finish</label>
-            <select name="phone_model">
-                <option value="N/A" selected>N/A - Not Ordering Phone Case</option>
-                
-                <optgroup label="Apple iPhone">
-                    <option value="iPhone 15 Pro">iPhone 15 Pro</option>
-                    <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
-                    <option value="iPhone 14">iPhone 14</option>
-                    <option value="iPhone 14 Pro">iPhone 14 Pro</option>
-                    <option value="iPhone 13">iPhone 13</option>
-                    <option value="iPhone 13 Pro">iPhone 13 Pro</option>
-                </optgroup>
-                
-                <optgroup label="Samsung Galaxy">
-                    <option value="Samsung Galaxy S25 - Glossy">Samsung Galaxy S25 (Glossy)</option>
-                    <option value="Samsung Galaxy S25 - Matte">Samsung Galaxy S25 (Matte)</option>
-                    <option value="Samsung Galaxy S25 Plus">Samsung Galaxy S25 Plus</option>
-                    <option value="Samsung Galaxy S25 Ultra">Samsung Galaxy S25 Ultra</option>
-                </optgroup>
-
-                <optgroup label="Google Pixel">
-                    <option value="Google Pixel 9 Pro XL">Google Pixel 9 Pro XL</option>
-                    <option value="Google Pixel 8">Google Pixel 8</option>
-                    <option value="Google Pixel 8 Pro">Google Pixel 8 Pro</option>
-                    <option value="Google Pixel 7">Google Pixel 7</option>
-                </optgroup>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Other Phone Model / Custom Sizing Notes (Optional)</label>
-            <input type="text" name="phone_model_custom" placeholder="e.g., iPhone 12 Pro Max or special request">
+            <label>Phone Cases (Models, Finishes & Quantities)</label>
+            <textarea name="phone_cases_breakdown" rows="2" placeholder="e.g., 4 x iPhone 15 Pro, 2 x Samsung S25 Ultra (Matte)"></textarea>
         </div>
 
         <div class="form-row">
             <div class="form-group">
-                <label>Laptop Case Size</label>
-                <select name="laptop_case_size">
-                    <option value="N/A" selected>N/A - Not Ordering</option>
-                    <option value="13 Inch">13" Sleeve</option>
-                    <option value="15 Inch">15" Sleeve</option>
-                </select>
+                <label>Laptop Sleeves (Sizes & Quantities)</label>
+                <input type="text" name="laptop_sleeves_breakdown" placeholder="e.g., 5 x 13-inch, 3 x 15-inch">
             </div>
             <div class="form-group">
-                <label>Sticker Pack Quantity</label>
-                <select name="sticker_quantity">
-                    <option value="N/A" selected>N/A - Not Ordering</option>
-                    <option value="1">1 Sticker</option>
-                    <option value="5">5 Pack</option>
-                    <option value="10">10 Pack</option>
-                    <option value="20">20 Pack</option>
-                </select>
+                <label>Sticker Packs / Total Units</label>
+                <input type="text" name="sticker_breakdown" placeholder="e.g., 50 Individual Stickers or 5 Packs">
             </div>
         </div>
 
         <div class="form-group">
-            <label>Custom Text / Tagline for Laptop Case (Personalization)</label>
+            <label>Custom Personalization / Text for Gear (Optional)</label>
             <input type="text" name="laptop_case_text" placeholder="e.g., AE9 LABS // FOUNDER EDITION">
         </div>
 
-        <!-- Brand Assets -->
+        <!-- Section 03: Brand Assets -->
         <div class="section-header">03. Brand Assets</div>
 
         <div class="form-group">
@@ -309,7 +256,7 @@
             </div>
         </div>
 
-        <!-- Shipping Address -->
+        <!-- Section 04: Shipping Address -->
         <div class="section-header">04. Shipping Destination</div>
 
         <div class="form-group">
