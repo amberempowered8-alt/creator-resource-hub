@@ -330,6 +330,53 @@
         <button type="submit" class="submit-btn">⚡ Launch Production Pipeline</button>
     </form>
 </div>
+<script>
+(function () {
+  const dropZone = document.querySelector('.file-upload');
+  const fileInput = document.getElementById('logo-file');
+  const label = dropZone.querySelector('label');
+  const defaultText = label.textContent;
 
+  function showFileName(file) {
+    if (file) {
+      label.textContent = '✅ ' + file.name + ' — click to change';
+      dropZone.style.borderColor = '#45f3ff';
+    } else {
+      label.textContent = defaultText;
+      dropZone.style.borderColor = '';
+    }
+  }
+
+  // Show filename after picking via click
+  fileInput.addEventListener('change', function () {
+    showFileName(fileInput.files[0]);
+  });
+
+  // Enable actual drag-and-drop
+  ['dragover', 'dragenter'].forEach(function (evt) {
+    dropZone.addEventListener(evt, function (e) {
+      e.preventDefault();
+      dropZone.style.background = 'rgba(69, 243, 255, 0.08)';
+    });
+  });
+
+  ['dragleave', 'dragend'].forEach(function (evt) {
+    dropZone.addEventListener(evt, function (e) {
+      e.preventDefault();
+      dropZone.style.background = '';
+    });
+  });
+
+  dropZone.addEventListener('drop', function (e) {
+    e.preventDefault();
+    dropZone.style.background = '';
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      fileInput.files = files;
+      showFileName(files[0]);
+    }
+  });
+})();
+</script>
 </body>
 </html>
