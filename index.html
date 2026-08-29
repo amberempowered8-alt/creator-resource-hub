@@ -656,7 +656,8 @@
             TOKEN: pataCB40nw15FRdJK.36eb805b9aa65fb60da2ae0931db69f47a2a053ae6ebd91c4567f27c19d3ee91 // 
         };
 
-        const URL_ENDPOINT = `https://api.airtable.com/v0/${CONFIG.BASE_ID}/${encodeURIComponent(CONFIG.TABLE_NAME)}?filterByFormula=Status%3D%27Published%27`;
+        const URL_ENDPOINT = const filterFormula = "FIND('Published', ARRAYJOIN({Status})) > 0";
+const URL_ENDPOINT = `https://api.airtable.com/v0/${CONFIG.BASE_ID}/${encodeURIComponent(CONFIG.TABLE_NAME)}?filterByFormula=${encodeURIComponent(filterFormula)}`;
 
         async function fetchResources() {
             const container = document.getElementById('resource-container');
