@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AE9 Labs // Systems Architecture & Digital Storefronts</title>
+    <title>AE9 Labs // Website Templates & Business Systems</title>
     <!-- Google Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* Ambient Glow Background Ornaments */
         body::before {
             content: '';
             position: absolute;
@@ -65,7 +64,6 @@
             pointer-events: none;
         }
 
-        /* Navigation Header */
         header {
             background-color: rgba(8, 9, 13, 0.9);
             backdrop-filter: blur(12px);
@@ -86,7 +84,6 @@
             align-items: center;
         }
 
-        /* Smart Logo Wrapper with Fallbacks */
         .logo-container {
             display: flex;
             align-items: center;
@@ -135,7 +132,6 @@
             color: #ffffff;
         }
 
-        /* Main Direct-to-Store Button */
         .shop-cta-btn {
             background: linear-gradient(135deg, var(--accent-neon) 0%, #e60072 100%);
             color: #ffffff;
@@ -153,7 +149,6 @@
             box-shadow: 0 6px 20px rgba(255, 0, 127, 0.45);
         }
 
-        /* Hero Banner Framework */
         .hero {
             padding: 180px 20px 80px;
             text-align: center;
@@ -211,7 +206,6 @@
             font-weight: 600;
         }
 
-        /* Corporate Focus Pillars */
         .pillars-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -257,7 +251,6 @@
             line-height: 1.6;
         }
 
-        /* System Architecture Section Styles */
         .architecture-section {
             padding: 60px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -293,11 +286,20 @@
             line-height: 1.7;
             color: var(--text-muted);
             max-width: 800px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 16px auto;
         }
 
         .architecture-description strong {
             color: #ffffff;
+        }
+
+        .architecture-note {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            opacity: 0.85;
         }
 
         .architecture-grid {
@@ -339,7 +341,6 @@
             margin: 0;
         }
 
-        /* Portfolio Dynamic Showroom */
         .catalog-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -371,10 +372,9 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 30px;
-            align-items: stretch; /* Forces equal heights on cards */
+            align-items: stretch;
         }
 
-        /* Cyber Product Cards */
         .card {
             background-color: var(--bg-card);
             border-radius: 14px;
@@ -413,12 +413,11 @@
             color: #ffffff;
         }
 
-        /* Crucial fix to force text to top and button to bottom */
         .card-description {
             font-size: 14px;
             color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: auto; /* Pushes button to bottom naturally without weird gaps */
+            margin-bottom: auto;
             padding-bottom: 24px;
         }
 
@@ -444,7 +443,6 @@
             transform: translateY(-1px);
         }
 
-        /* Dynamic Support & Clear Boundaries Panel */
         .policy-section {
             max-width: 1200px;
             margin: 40px auto 0;
@@ -490,7 +488,6 @@
             color: var(--accent-cyber);
         }
 
-        /* Footer Section */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -515,7 +512,6 @@
             grid-column: 1 / -1;
         }
 
-        /* Responsive Configuration */
         @media (max-width: 968px) {
             .pillars-grid {
                 grid-template-columns: 1fr;
@@ -541,13 +537,12 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo-container">
-                <!-- Smart Fallback logo image -->
                 <img src="logo.png" alt="AE9 logo" class="logo-image" id="brand-logo" onerror="this.style.display='none'; document.getElementById('brand-text-logo').style.display='flex'">
                 <div id="brand-text-logo" class="logo-text-fallback" style="display: none;">AE9<span> Labs</span></div>
             </a>
             <nav class="nav-links">
-                <a href="#showcase" class="nav-link">Showcase</a>
-                <a href="https://payhip.com/AE9Labs" target="_blank" class="shop-cta-btn">Access Storefront</a>
+                <a href="#showcase" class="nav-link">Shop</a>
+                <a href="https://payhip.com/AE9Labs" target="_blank" class="shop-cta-btn">Visit the Store</a>
             </nav>
         </div>
     </header>
@@ -555,108 +550,110 @@
    <!-- Brand Hero Module -->
 <section class="hero" id="intro">
     <div class="hero-inner">
-        <div class="badge">Systems Engineering & Automated Architecture</div>
-        <h1>Automate Your Setup. <span>Reclaim Your Sanity.</span></h1>
+        <div class="badge">Website Templates & Business Systems</div>
+        <h1>Own Your Website. <span>No Monthly Fees, Ever.</span></h1>
         <p>
-            Whether you're launching your very first digital product or scaling an established brand, running a business shouldn't mean drowning in subscription fees and disconnected tools. 
-            <strong>At AE9 Labs, we build clean, sovereign storefronts and hands-free AI workflows engineered for $0/month in software overhead.</strong> 
-            Own your source code, bypass platform gatekeepers, and deploy a professional home base that grows with you from day one.
+            Whether you're launching your very first digital product or scaling an existing brand, running a business shouldn't mean drowning in monthly subscriptions and a pile of disconnected tools.
+            <strong>At AE9 Labs, we build clean, done-for-you websites and simple automations that cost $0/month in software.</strong>
+            You own the code, you're not locked into any platform, and you get a professional home base for your business from day one.
         </p>
     </div>
 </section>
 
-    <!-- 3 Corporate Focus Pillars -->
+    <!-- 3 Focus Pillars -->
     <section class="pillars-section">
         <div class="pillars-grid">
             <div class="pillar-card">
                 <div class="pillar-icon"><i class="fa-solid fa-cubes"></i></div>
-                <h3>Headless Frontends</h3>
-                <p>Custom, responsive digital shop displays linked directly to secure backend databases with zero ongoing subscription costs.</p>
+                <h3>Website Templates</h3>
+                <p>Custom, ready-to-launch websites connected directly to a free database you control — no ongoing subscription costs.</p>
             </div>
             <div class="pillar-card">
                 <div class="pillar-icon"><i class="fa-solid fa-gears"></i></div>
-                <h3>Systems Automation</h3>
-                <p>Complete custom workflow mapping utilizing Make, Notion, and REST APIs to automatically run business inventory behind the scenes.</p>
+                <h3>Simple Automations</h3>
+                <p>We connect your tools together (Make, Airtable, and more) so routine tasks in your business run automatically in the background.</p>
             </div>
             <div class="pillar-card">
                 <div class="pillar-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                <h3>Brand Asset Packs</h3>
-                <p>Premium copywriting blueprints, automated content vault frameworks, and visuals designed for faceless conversions.</p>
+                <h3>Content & Branding Help</h3>
+                <p>Copy templates, content planning tools, and visuals built to help you show up consistently without burning out.</p>
             </div>
         </div>
     </section>
 
-    <!-- NEW: SYSTEM ARCHITECTURE OVERVIEW SECTION -->
+    <!-- SYSTEM OVERVIEW SECTION -->
     <section class="architecture-section">
         <div class="architecture-container">
-            <span class="architecture-tag">// SOVEREIGN DIGITAL INFRASTRUCTURE</span>
-            <h2 class="architecture-title">Stop Renting Your Business. Own Your Code.</h2>
+            <span class="architecture-tag">// Why $0/Month</span>
+            <h2 class="architecture-title">Stop Paying Rent On Your Website.</h2>
             <p class="architecture-description">
-                Most digital creators are trapped paying $300+/month in software "platform taxes" just to host digital products and run basic marketing. 
-                <strong>AE9 Labs</strong> builds sovereign, open-source operating systems engineered for <strong>$0 in recurring monthly platform fees</strong>.
+                Most website builders charge $20-300+ per month just to keep your site online — whether you're making money yet or not.
+                <strong>AE9 Labs builds you a real website you own outright, with $0 in recurring monthly platform fees.</strong>
+            </p>
+            <p class="architecture-note">
+                A quick honest note: hosting is free forever. As your business grows past free-tier limits on the database side, a low-cost plan may eventually apply — but you'll never be locked into a monthly platform fee just to keep your site online.
             </p>
 
             <div class="architecture-grid">
                 <div class="architecture-card">
                     <div class="card-icon-emoji">💻</div>
-                    <h3>Sovereign Frontend</h3>
-                    <p>Lightning-fast, headless storefronts featuring interactive Virtual Tour VSLs. Hosted 100% free forever on GitHub Pages.</p>
+                    <h3>Free Website Hosting</h3>
+                    <p>A fast, professional website hosted 100% free, forever, on GitHub Pages — no hosting bill, ever.</p>
                 </div>
 
                 <div class="architecture-card">
                     <div class="card-icon-emoji">📱</div>
-                    <h3>Phone-Controlled CMS</h3>
-                    <p>Manage inventory, update pricing, and log client support in real time straight from a free Airtable mobile app.</p>
+                    <h3>Manage It From Your Phone</h3>
+                    <p>Update your products, pricing, and content in real time from a free Airtable app on your phone — no coding needed.</p>
                 </div>
 
                 <div class="architecture-card">
                     <div class="card-icon-emoji">🤖</div>
-                    <h3>Autonomous Video Engine</h3>
-                    <p>Cloud-based AI workflows (Make.com + Gemini + Shotstack) that manufacture high-converting short-form videos 24/7 on pure autopilot.</p>
+                    <h3>Automated Content Tools</h3>
+                    <p>Optional automated workflows that help generate short-form video content for you, so marketing takes less of your time.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Airtable Dynamic Portfolio Showroom -->
+    <!-- Portfolio Showroom -->
     <section class="catalog-container" id="showcase">
         <div class="catalog-header">
-            <h2 class="section-title">Showcase & <span>Blueprint Systems</span></h2>
-            <p class="section-subtitle">Real-time status view of our active systems and production blueprints.</p>
+            <h2 class="section-title">Our <span>Templates & Products</span></h2>
+            <p class="section-subtitle">Everything currently available in the shop.</p>
         </div>
 
-        <!-- Airtable dynamically populates our cards here -->
         <div id="resource-container" class="grid-container"></div>
     </section>
 
-    <!-- SYSTEMS SUPPORT & CLEAR BOUNDARIES POLICY -->
+    <!-- SUPPORT & REFUND POLICY -->
     <section class="policy-section">
         <div class="policy-grid">
             <div class="policy-card">
-                <h4><i class="fa-solid fa-wrench"></i> The 30-Day Asynchronous Alignment Guarantee</h4>
-                <p>Deploying technical environments can occasionally present minor local configuration adjustments. To protect your workflow, every template purchase includes <strong>2 complimentary asynchronous alignment audits</strong> within the first 30 days of purchase. Simply submit our secure support form, and our engineering desk will patch and return your verified code files within 48 business hours—no scheduling or live calls required.</p>
+                <h4><i class="fa-solid fa-wrench"></i> Free Setup Support</h4>
+                <p>Setting up a new website can sometimes hit a small snag. Every template purchase includes <strong>2 free support check-ins</strong> within your first 30 days. Just submit our support form, and we'll help sort out any issue within 48 business hours — no scheduling calls required.</p>
             </div>
             <div class="policy-card">
-                <h4><i class="fa-solid fa-handshake-slash"></i> Clear Boundaries Refund Policy</h4>
-                <p>Because our products deliver immediate, raw source-code structures that transfer full, unrestricted lifetime ownership and intellectual property directly to your possession, <strong>all sales are final</strong>. These systems are verified, fully functional, and engineered to eliminate recurring platform taxes permanently.</p>
+                <h4><i class="fa-solid fa-handshake-slash"></i> All Sales Are Final</h4>
+                <p>Because you get instant access to the full source code and full ownership the moment you buy, <strong>all sales are final</strong>. Every product is tested and fully functional before it's listed, and it's built to eliminate recurring platform fees for good.</p>
             </div>
         </div>
     </section>
 
-    <!-- Main Clean Footer -->
+    <!-- Footer -->
     <footer>
         <div class="footer-logo">AE9 Labs</div>
         <p>&copy; 2026 Amber Empowered LLC. All Rights Reserved. All systems engineered under local Phoenix administrative compliance.</p>
     </footer>
 
     <!-- =========================================================================
-         ⚙️ SECURE AIRTABLE DYNAMIC POPULATOR ENGINE
+         ⚙️ AIRTABLE DYNAMIC POPULATOR — REPLACE TOKEN BELOW AFTER REGENERATING
          ========================================================================= -->
     <script>
         const CONFIG = {
             BASE_ID: 'app2dNCzkf61VdNKa',
             TABLE_NAME: 'Resources',
-            TOKEN: 'patyL33svMDeXQTBl.ec9405459cca137c101221070ea758779035d955e4180a6d2b21beab4d147611'
+            TOKEN: pataCB40nw15FRdJK.36eb805b9aa65fb60da2ae0931db69f47a2a053ae6ebd91c4567f27c19d3ee91 // 
         };
 
         const URL_ENDPOINT = `https://api.airtable.com/v0/${CONFIG.BASE_ID}/${encodeURIComponent(CONFIG.TABLE_NAME)}?filterByFormula=Status%3D%27Published%27`;
@@ -666,7 +663,7 @@
             if (!container) return;
             
             try {
-                container.innerHTML = '<p class="loading">Locating live portfolio database entries...</p>';
+                container.innerHTML = '<p class="loading">Loading products...</p>';
 
                 const response = await fetch(URL_ENDPOINT, {
                     headers: {
@@ -678,10 +675,10 @@
                 if (!response.ok) throw new Error(`Gateway Error: ${response.status}`);
                 const data = await response.json();
                 
-                container.innerHTML = ''; // Clear loading indicator
+                container.innerHTML = '';
 
                 if (!data.records || data.records.length === 0) {
-                    container.innerHTML = `<p class="loading">No showcased products found. Ensure records are marked 'Published' inside Airtable.</p>`;
+                    container.innerHTML = `<p class="loading">No products found yet. Set item status to 'Published' inside Airtable to display it here.</p>`;
                     return;
                 }
 
@@ -689,9 +686,8 @@
                     const fields = record.fields;
                     
                     const name = fields['Resource Name'] || 'Untitled Resource Asset';
-                    const description = fields['Description'] || 'No description provided for this dynamic resource item.';
+                    const description = fields['Description'] || 'No description provided for this item.';
                     
-                    // --- DIRECT RAW LINK EXTRACTION ---
                     let link = '#';
                     const rawAccessLink = fields['Access Link'];
 
@@ -717,7 +713,6 @@
                         }
                     }
 
-                    // --- COVER IMAGE EXTRACTION ---
                     let imageUrl = '';
                     if (fields['Cover Image'] && fields['Cover Image'].length > 0) {
                         const attachment = fields['Cover Image'][0];
@@ -728,7 +723,6 @@
                         }
                     }
 
-                    // --- RENDER CARD ---
                     const cardHTML = `
                         <div class="card">
                             ${imageUrl 
@@ -739,7 +733,7 @@
                                 <h3 class="card-title">${name}</h3>
                                 <p class="card-description">${description}</p>
                                 <a href="${link}" target="_blank" rel="noopener noreferrer" class="card-btn">
-                                   <i class="fa-solid fa-arrow-up-right-from-square" style="margin-right: 8px;"></i> See Service Details
+                                   <i class="fa-solid fa-arrow-up-right-from-square" style="margin-right: 8px;"></i> See Details
                                 </a>
                             </div>
                         </div>
@@ -750,11 +744,10 @@
 
             } catch (error) {
                 console.error('System Exception:', error);
-                container.innerHTML = `<p class="loading" style="color: #ff4d4d;">🔒 Secure portfolio pipeline is settling. Try refreshing the gateway.</p>`;
+                container.innerHTML = `<p class="loading" style="color: #ff4d4d;">Having trouble loading products right now. Try refreshing the page.</p>`;
             }
         }
 
-        // Fire database query instantly
         fetchResources();
     </script>
 </body>
