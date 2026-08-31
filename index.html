@@ -651,14 +651,13 @@
          ========================================================================= -->
     <script>
         const CONFIG = {
-            BASE_ID: 'app2dNCzkf61VdNKa',
-            TABLE_NAME: 'Resources',
-            TOKEN: pataCB40nw15FRdJK.36eb805b9aa65fb60da2ae0931db69f47a2a053ae6ebd91c4567f27c19d3ee91 // 
-        };
+    BASE_ID: 'app2dNCzkf61VdNKa',
+    TABLE_NAME: 'Resources',
+    TOKEN: 'patRTK3WSjuEC6QVk.a03077e82bc4ee89c96538740d6d16775305f5c93d9ff528fee9b6793e011ae7'
+};
 
-        const URL_ENDPOINT = const filterFormula = "FIND('Published', ARRAYJOIN({Status})) > 0";
+const filterFormula = "FIND('Published', ARRAYJOIN({Status})) > 0";
 const URL_ENDPOINT = `https://api.airtable.com/v0/${CONFIG.BASE_ID}/${encodeURIComponent(CONFIG.TABLE_NAME)}?filterByFormula=${encodeURIComponent(filterFormula)}`;
-
         async function fetchResources() {
             const container = document.getElementById('resource-container');
             if (!container) return;
