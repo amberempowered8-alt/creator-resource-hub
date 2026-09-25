@@ -1,0 +1,55 @@
+name: Sync catalog from Airtable
+
+# Fetches the published catalog from Airtable and publishes it as a plain
+# data file the site reads. The Airtable token is stored as an encrypted
+# GitHub secret and is NEVER written into any file in this repo — it only
+# exists inside this workflow run, on GitHub's servers.
+#
+# Runs automatically every 30 minutes, and any time you push a change.
+# You can also trigger it manually from the Actions tab.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Fetch published records from Airtable
+        env:
+          AIRTABLE_PAT: ${{ secrets.AIRTABLE_PAT }}
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_TABLE_NAME: ${{ secrets.AIRTABLE_TABLE_NAME }}
+        run: |
+          mkdir -p data
+          export TABLE="${AIRTABLE_TABLE_NAME:-Resources}"
+          ENCODED_TABLE=$(python3 -c "import urllib.parse,os; print(urllib.parse.quote(os.environ['TABLE']))")
+          ENCODED_FILTER=$(python3 -c "import urllib.parse; print(urllib.parse.quote(\"FIND('Published', ARRAYJOIN({Status})) > 0\"))")
+          curl -sS -f \
+            -H "Authorization: Bearer $AIRTABLE_PAT" \
+            "https://api.airtable.com/v0/$AIRTABLE_BASE_ID/$ENCODED_TABLE?filterByFormula=$ENCODED_FILTER" \
+            -o data/resources.json
+          echo "Fetched catalog:"
+          cat data/resources.json
+
+      - name: Commit updated catalog data
+        run: |
+          git config user.name "catalog-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/resources.json
+          if git diff --cached --quiet; then
+            echo "No catalog changes."
+          else
+            git commit -m "Sync catalog from Airtable [automated]"
+            git push
+          fi
