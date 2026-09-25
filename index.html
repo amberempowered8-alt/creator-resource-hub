@@ -647,34 +647,26 @@
     </footer>
 
     <!-- =========================================================================
-         ⚙️ AIRTABLE DYNAMIC POPULATOR — REPLACE TOKEN BELOW AFTER REGENERATING
+         AIRTABLE-POWERED CATALOG — reads a plain data file that a scheduled
+         GitHub Action keeps in sync with Airtable. No token lives in this
+         file, or anywhere else in this repo. See .github/workflows/sync-catalog.yml.
          ========================================================================= -->
     <script>
-        const CONFIG = {
-    BASE_ID: 'app2dNCzkf61VdNKa',
-    TABLE_NAME: 'Resources',
-    TOKEN: 'patRTK3WSjuEC6QVk.a03077e82bc4ee89c96538740d6d16775305f5c93d9ff528fee9b6793e011ae7'
-};
-
-const filterFormula = "FIND('Published', ARRAYJOIN({Status})) > 0";
-const URL_ENDPOINT = `https://api.airtable.com/v0/${CONFIG.BASE_ID}/${encodeURIComponent(CONFIG.TABLE_NAME)}?filterByFormula=${encodeURIComponent(filterFormula)}`;
         async function fetchResources() {
             const container = document.getElementById('resource-container');
             if (!container) return;
-            
+
             try {
                 container.innerHTML = '<p class="loading">Loading products...</p>';
 
-                const response = await fetch(URL_ENDPOINT, {
-                    headers: {
-                        'Authorization': `Bearer ${CONFIG.TOKEN}`,
-                        'Content-Type': 'application/json'
-                    }
-                });
+                const response = await fetch('data/resources.json', { cache: 'no-store' });
 
-                if (!response.ok) throw new Error(`Gateway Error: ${response.status}`);
+                if (!response.ok) {
+                    container.innerHTML = `<p class="loading">Your catalog will appear here once the automatic sync runs for the first time.</p>`;
+                    return;
+                }
                 const data = await response.json();
-                
+
                 container.innerHTML = '';
 
                 if (!data.records || data.records.length === 0) {
