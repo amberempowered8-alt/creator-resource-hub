@@ -5,6 +5,12 @@ name: Sync catalog from Airtable
 # GitHub secret and is NEVER written into any file in this repo — it only
 # exists inside this workflow run, on GitHub's servers.
 #
+# Cover images are downloaded and saved into this repo (data/images/) so
+# the site never depends on Airtable's temporary image links, which expire
+# a couple hours after they're generated. Every sync re-downloads the
+# current image, so photos always stay current and never go broken between
+# syncs, even if a scheduled run gets delayed.
+#
 # Runs automatically every 30 minutes, and any time you push a change.
 # You can also trigger it manually from the Actions tab.
 
@@ -42,11 +48,58 @@ jobs:
           echo "Fetched catalog:"
           cat data/resources.json
 
+      - name: Download cover images and localize URLs
+        run: |
+          mkdir -p data/images
+          python3 - <<'PYEOF'
+          import json, os, re, urllib.request
+
+          with open('data/resources.json') as f:
+              data = json.load(f)
+
+          os.makedirs('data/images', exist_ok=True)
+
+          for record in data.get('records', []):
+              fields = record.get('fields', {})
+              attachments = fields.get('Cover Image')
+              if not attachments:
+                  continue
+              att = attachments[0]
+              src_url = att.get('url')
+              if not src_url:
+                  continue
+
+              orig_name = att.get('filename', '')
+              ext = os.path.splitext(orig_name)[1] or '.jpg'
+              att_id = att.get('id') or re.sub(r'\W+', '', src_url)[:24]
+              local_name = f"{att_id}{ext}"
+              local_path = f"data/images/{local_name}"
+
+              try:
+                  req = urllib.request.Request(src_url, headers={'User-Agent': 'Mozilla/5.0'})
+                  with urllib.request.urlopen(req, timeout=30) as resp, open(local_path, 'wb') as out:
+                      out.write(resp.read())
+              except Exception as e:
+                  print(f"WARN: failed to download {src_url}: {e}")
+                  continue
+
+              # Point every URL the site might read at the local, permanent file.
+              att['url'] = local_path
+              if 'thumbnails' in att and isinstance(att['thumbnails'], dict):
+                  for key in att['thumbnails']:
+                      att['thumbnails'][key]['url'] = local_path
+
+          with open('data/resources.json', 'w') as f:
+              json.dump(data, f, indent=2)
+
+          print("Localized cover images.")
+          PYEOF
+
       - name: Commit updated catalog data
         run: |
           git config user.name "catalog-sync-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/resources.json
+          git add data/resources.json data/images
           if git diff --cached --quiet; then
             echo "No catalog changes."
           else
