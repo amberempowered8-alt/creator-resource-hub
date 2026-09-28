@@ -139,6 +139,52 @@
       }
     },
     {
+      "id": "recNZufjTEItmJfTV",
+      "createdTime": "2026-09-28T19:06:23.000Z",
+      "fields": {
+        "Resource Name": "Nail Tech Website template (pink)",
+        "Category": "Premium Guide",
+        "Status": [
+          "Published"
+        ],
+        "Cover Image": [
+          {
+            "id": "attQm6AyUq99MQXJo",
+            "width": 1600,
+            "height": 1600,
+            "url": "data/images/attQm6AyUq99MQXJo.png",
+            "filename": "Nail-Tech-Template-Cover.png",
+            "size": 77937,
+            "type": "image/png",
+            "thumbnails": {
+              "small": {
+                "url": "data/images/attQm6AyUq99MQXJo.png",
+                "width": 36,
+                "height": 36
+              },
+              "large": {
+                "url": "data/images/attQm6AyUq99MQXJo.png",
+                "width": 512,
+                "height": 512
+              },
+              "full": {
+                "url": "data/images/attQm6AyUq99MQXJo.png",
+                "width": 1600,
+                "height": 1600
+              }
+            }
+          }
+        ],
+        "Featured": "https://payhip.com/b/Y0DQq",
+        "Access Link": {
+          "state": "generated",
+          "value": "https://payhip.com/b/Y0DQq",
+          "isStale": true
+        },
+        "Description": "A glossy, girly-pop website for nail, lash, and brow artists \u2014 animated glitter hero, services menu, gallery, and a booking form that lands straight in your own Airtable, no more chasing DMs.\n"
+      }
+    },
+    {
       "id": "recUQqUUXDRjYpeRS",
       "createdTime": "2026-08-29T00:34:16.000Z",
       "fields": {
