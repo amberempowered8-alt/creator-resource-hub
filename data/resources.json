@@ -11,28 +11,28 @@
         ],
         "Cover Image": [
           {
-            "id": "attQABRDAaBHqQLbx",
-            "width": 2560,
-            "height": 1440,
-            "url": "data/images/attQABRDAaBHqQLbx.png",
-            "filename": "coach-payhip-cover (1).png",
-            "size": 494038,
+            "id": "attf3mET8W1xn2EFx",
+            "width": 1600,
+            "height": 1600,
+            "url": "data/images/attf3mET8W1xn2EFx.png",
+            "filename": "Coach-Consultant-Cover.png",
+            "size": 74002,
             "type": "image/png",
             "thumbnails": {
               "small": {
-                "url": "data/images/attQABRDAaBHqQLbx.png",
-                "width": 64,
+                "url": "data/images/attf3mET8W1xn2EFx.png",
+                "width": 36,
                 "height": 36
               },
               "large": {
-                "url": "data/images/attQABRDAaBHqQLbx.png",
-                "width": 910,
+                "url": "data/images/attf3mET8W1xn2EFx.png",
+                "width": 512,
                 "height": 512
               },
               "full": {
-                "url": "data/images/attQABRDAaBHqQLbx.png",
-                "width": 2560,
-                "height": 1440
+                "url": "data/images/attf3mET8W1xn2EFx.png",
+                "width": 1600,
+                "height": 1600
               }
             }
           }
