@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Statement | AE9 Labs</title>
+  <meta name="description" content="Accessibility statement for AE9 Labs: our commitment, what we've done, and how to reach us if anything on this site is hard to use.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #4a4a4a;
+      --accent: #0b5cad;
+      --line: #d9d9d9;
+      --box: #f4f6f8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --text: #f2f2f2;
+        --muted: #c8c8c8;
+        --accent: #7cb8ff;
+        --line: #3a3a3a;
+        --box: #1e1e1e;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.5rem 1rem;
+      z-index: 10;
+    }
+    .skip-link:focus { left: 1rem; top: 1rem; }
+    main {
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 4rem;
+    }
+    h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 0.5rem; }
+    h2 { font-size: 1.3rem; margin: 2.25rem 0 0.5rem; }
+    p, li { color: var(--text); }
+    .updated { color: var(--muted); margin-top: 0; }
+    ul { padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:focus-visible, .back:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .contact {
+      background: var(--box);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .contact p { margin: 0.25rem 0; }
+    .back { display: inline-block; margin-bottom: 1.5rem; }
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 3rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <main id="content">
+    <a class="back" href="index.html">&larr; Back to home</a>
+
+    <h1>Accessibility Statement</h1>
+    <p class="updated">Last updated: October 2, 2026</p>
+
+    <h2>Our commitment</h2>
+    <p>AE9 Labs wants everyone to be able to use this website, including people who use screen readers, keyboard navigation, zoom, or other assistive tools. We're working to make this site meet the <strong>Web Content Accessibility Guidelines (WCAG) 2.1, Level AA</strong>, which is the widely used standard for accessible websites.</p>
+
+    <h2>What we've done</h2>
+    <ul>
+      <li>The site works on phones, tablets, and computers, and you can zoom in up to 200% or more without losing content.</li>
+      <li>Images have text descriptions (alt text) so screen readers can describe them.</li>
+      <li>Pages use clear headings and labels so they're easier to navigate with assistive technology.</li>
+      <li>Text and buttons are designed with readable color contrast.</li>
+      <li>You can move through the site and use its links and forms with a keyboard.</li>
+    </ul>
+
+    <h2>Known limitations</h2>
+    <p>We're always improving, and some parts of this site may not be fully accessible yet. Some features, such as checkout, booking, or embedded forms, are provided by outside services. We choose them with care, but we don't control how they're built.</p>
+
+    <h2>Need help or found a problem?</h2>
+    <p>If anything on this site is hard to use, please let us know. We'll do our best to fix it, or get you the information or service you need another way.</p>
+    <div class="contact">
+      <p><strong>Email:</strong> <a href="mailto:amberempowered9@gmail.com">amberempowered9@gmail.com</a></p>
+      <p><strong>We aim to respond within:</strong> 2 business days</p>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 AE9 Labs</p>
+    </footer>
+  </main>
+</body>
+</html>
