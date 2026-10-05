@@ -728,6 +728,159 @@
         </div>
     </section>
 
+     <!-- =====================================================================
+     AE9 Labs FAQ section (visible FAQ + matching code for Google and AI)
+     WHERE TO PASTE: in index.html, search for <footer and paste this
+     whole block on the line right above it. One paste, that's it.
+     ===================================================================== -->
+<style>
+    .ae9-faq {
+        position: relative;
+        z-index: 1;
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 90px 24px;
+    }
+    .ae9-faq-label {
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--accent-cyber);
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .ae9-faq h2 {
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .ae9-faq details {
+        background: var(--bg-card);
+        border: 1px solid var(--border-glow);
+        border-radius: 14px;
+        margin-bottom: 14px;
+        transition: border-color 0.3s ease;
+    }
+    .ae9-faq details[open] {
+        border-color: rgba(69, 243, 255, 0.35);
+    }
+    .ae9-faq summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 20px 56px 20px 24px;
+        font-weight: 700;
+        font-size: 17px;
+        position: relative;
+    }
+    .ae9-faq summary::-webkit-details-marker { display: none; }
+    .ae9-faq summary::after {
+        content: '+';
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--accent-cyber);
+        font-size: 24px;
+        font-weight: 400;
+    }
+    .ae9-faq details[open] summary::after { content: '\2212'; }
+    .ae9-faq details p {
+        padding: 0 24px 22px;
+        color: var(--text-muted);
+        font-size: 15.5px;
+    }
+</style>
+
+<section class="ae9-faq" id="faq">
+    <p class="ae9-faq-label">// Straight answers</p>
+    <h2>Questions people ask before they buy</h2>
+
+    <details>
+        <summary>How can I get a website without paying monthly fees?</summary>
+        <p>Buy the website once and host it yourself for free. That's exactly what AE9 Labs templates are: a one-time purchase, no subscription, no monthly platform bill. You get the code and a step-by-step guide to put it live on free hosting. The only ongoing cost is a custom domain name, if you want one, which usually runs about $10 to $20 a year.</p>
+    </details>
+
+    <details>
+        <summary>Do I actually own my website?</summary>
+        <p>Yes! When you buy an AE9 Labs template, the code is yours. It's not rented from a platform, and nobody can raise your price or lock you out of your own site. Your site, your data, your business.</p>
+    </details>
+
+    <details>
+        <summary>What comes with an AE9 Labs template?</summary>
+        <p>You get the full website code plus an SOP, which is a step-by-step setup guide written in plain English. Every template is built to the same standard, so you know what you're getting no matter which one you pick.</p>
+    </details>
+
+    <details>
+        <summary>Who are AE9 Labs templates for?</summary>
+        <p>New creators and small business owners who want a real website without a big budget or a monthly bill. There are templates for coaches and consultants who take bookings, product and Etsy sellers who want their own storefront, and local service providers like cleaners, landscapers, and handymen.</p>
+    </details>
+
+    <details>
+        <summary>I'm not techy. Can I still do this?</summary>
+        <p>Yes. The setup guide walks you through every step, one at a time. And if you'd rather not touch it at all, AE9 Labs offers a done-for-you website and funnel setup where everything gets built and handed to you, and you still own all of it.</p>
+    </details>
+
+    <details>
+        <summary>How much does it cost?</summary>
+        <p>Templates are $97, one time. A done-for-you website plus funnel setup is $2,500, with a deposit to get started and the rest due before your finished site is handed over to you. Custom builds are quoted based on what you need. No monthly fees on any of it.</p>
+    </details>
+
+    <details>
+        <summary>How is this different from a website builder?</summary>
+        <p>Most popular website builders charge you every month for as long as your site is up, and your site lives on their platform. With AE9 Labs you pay once, you own the code, and you can host it free. Shop as you grow and build off what you know, instead of renting forever.</p>
+    </details>
+</section>
+
+<!-- Matching code so Google and AI tools can read the same questions and answers -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://amber-empowered.com/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can I get a website without paying monthly fees?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Buy the website once and host it yourself for free. That's exactly what AE9 Labs templates are: a one-time purchase, no subscription, no monthly platform bill. You get the code and a step-by-step guide to put it live on free hosting. The only ongoing cost is a custom domain name, if you want one, which usually runs about $10 to $20 a year." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I actually own my website?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes! When you buy an AE9 Labs template, the code is yours. It's not rented from a platform, and nobody can raise your price or lock you out of your own site. Your site, your data, your business." }
+    },
+    {
+      "@type": "Question",
+      "name": "What comes with an AE9 Labs template?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You get the full website code plus an SOP, which is a step-by-step setup guide written in plain English. Every template is built to the same standard, so you know what you're getting no matter which one you pick." }
+    },
+    {
+      "@type": "Question",
+      "name": "Who are AE9 Labs templates for?",
+      "acceptedAnswer": { "@type": "Answer", "text": "New creators and small business owners who want a real website without a big budget or a monthly bill. There are templates for coaches and consultants who take bookings, product and Etsy sellers who want their own storefront, and local service providers like cleaners, landscapers, and handymen." }
+    },
+    {
+      "@type": "Question",
+      "name": "I'm not techy. Can I still do this?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The setup guide walks you through every step, one at a time. And if you'd rather not touch it at all, AE9 Labs offers a done-for-you website and funnel setup where everything gets built and handed to you, and you still own all of it." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Templates are $97, one time. A done-for-you website plus funnel setup is $2,500, with a deposit to get started and the rest due before your finished site is handed over to you. Custom builds are quoted based on what you need. No monthly fees on any of it." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a website builder?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most popular website builders charge you every month for as long as your site is up, and your site lives on their platform. With AE9 Labs you pay once, you own the code, and you can host it free. Shop as you grow and build off what you know, instead of renting forever." }
+    }
+  ]
+}
+</script>
+<!-- ===================== end AE9 Labs FAQ section ===================== -->
+
     <!-- Footer -->
     <footer>
         <div class="footer-logo">AE9 Labs</div>
