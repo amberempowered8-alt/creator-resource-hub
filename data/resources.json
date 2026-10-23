@@ -1,49 +1,48 @@
 {
   "records": [
     {
-      "id": "rec9MhYzwtPsM7mn3",
-      "createdTime": "2026-08-29T00:34:16.000Z",
+      "id": "rec5E4f9OdGzm8m2e",
+      "createdTime": "2026-10-23T19:46:54.000Z",
       "fields": {
-        "Resource Name": "Coach & Consultant Booking Site",
-        "Category": "Premium Guide",
+        "Resource Name": "Stress-Free Setup + Backoffice",
         "Status": [
           "Published"
         ],
         "Cover Image": [
           {
-            "id": "attf3mET8W1xn2EFx",
+            "id": "att151qy3w9CI6QWz",
             "width": 1600,
             "height": 1600,
-            "url": "data/images/attf3mET8W1xn2EFx.png",
-            "filename": "Coach-Consultant-Cover.png",
-            "size": 74002,
+            "url": "data/images/att151qy3w9CI6QWz.png",
+            "filename": "ae9-payhip-cover-stress-free-setup-starter-97.png",
+            "size": 80317,
             "type": "image/png",
             "thumbnails": {
               "small": {
-                "url": "data/images/attf3mET8W1xn2EFx.png",
+                "url": "data/images/att151qy3w9CI6QWz.png",
                 "width": 36,
                 "height": 36
               },
               "large": {
-                "url": "data/images/attf3mET8W1xn2EFx.png",
+                "url": "data/images/att151qy3w9CI6QWz.png",
                 "width": 512,
                 "height": 512
               },
               "full": {
-                "url": "data/images/attf3mET8W1xn2EFx.png",
+                "url": "data/images/att151qy3w9CI6QWz.png",
                 "width": 1600,
                 "height": 1600
               }
             }
           }
         ],
-        "Featured": "https://payhip.com/b/184kI",
+        "Featured": "https://payhip.com/b/27uQ4",
         "Access Link": {
           "state": "generated",
-          "value": "https://payhip.com/b/184kI",
+          "value": "https://payhip.com/b/27uQ4",
           "isStale": true
         },
-        "Description": "A booking website for coaches and consultants, with real session availability shown right on the homepage.\n"
+        "Description": "A ready-to-launch website AND the back office that runs behind it. Your services and reviews live in your own free Airtable, and booking requests land straight in your inbox. Own your code. Own your data. No monthly platform fees. Do it yourself for $97, or let me build it for you.\n"
       }
     },
     {
@@ -136,144 +135,6 @@
           "isStale": true
         },
         "Description": "This 10-minute, step-by-step guide walks you through setting up a completely free Payhip account and getting a real, working checkout link \u2014 no coding, no monthly fee.\n"
-      }
-    },
-    {
-      "id": "recNZufjTEItmJfTV",
-      "createdTime": "2026-09-28T19:06:23.000Z",
-      "fields": {
-        "Resource Name": "Nail Tech Website template (pink)",
-        "Category": "Premium Guide",
-        "Status": [
-          "Published"
-        ],
-        "Cover Image": [
-          {
-            "id": "attQm6AyUq99MQXJo",
-            "width": 1600,
-            "height": 1600,
-            "url": "data/images/attQm6AyUq99MQXJo.png",
-            "filename": "Nail-Tech-Template-Cover.png",
-            "size": 77937,
-            "type": "image/png",
-            "thumbnails": {
-              "small": {
-                "url": "data/images/attQm6AyUq99MQXJo.png",
-                "width": 36,
-                "height": 36
-              },
-              "large": {
-                "url": "data/images/attQm6AyUq99MQXJo.png",
-                "width": 512,
-                "height": 512
-              },
-              "full": {
-                "url": "data/images/attQm6AyUq99MQXJo.png",
-                "width": 1600,
-                "height": 1600
-              }
-            }
-          }
-        ],
-        "Featured": "https://payhip.com/b/Y0DQq",
-        "Access Link": {
-          "state": "generated",
-          "value": "https://payhip.com/b/Y0DQq",
-          "isStale": true
-        },
-        "Description": "A glossy, girly-pop website for nail, lash, and brow artists \u2014 animated glitter hero, services menu, gallery, and a booking form that lands straight in your own Airtable, no more chasing DMs.\n"
-      }
-    },
-    {
-      "id": "recUQqUUXDRjYpeRS",
-      "createdTime": "2026-08-29T00:34:16.000Z",
-      "fields": {
-        "Resource Name": "Etsy & Product Seller Storefront",
-        "Category": "Premium Guide",
-        "Status": [
-          "Published"
-        ],
-        "Cover Image": [
-          {
-            "id": "attuUxevmugJFIHvV",
-            "width": 1600,
-            "height": 1600,
-            "url": "data/images/attuUxevmugJFIHvV.png",
-            "filename": "Etsy-Storefront-Cover.png",
-            "size": 69164,
-            "type": "image/png",
-            "thumbnails": {
-              "small": {
-                "url": "data/images/attuUxevmugJFIHvV.png",
-                "width": 36,
-                "height": 36
-              },
-              "large": {
-                "url": "data/images/attuUxevmugJFIHvV.png",
-                "width": 512,
-                "height": 512
-              },
-              "full": {
-                "url": "data/images/attuUxevmugJFIHvV.png",
-                "width": 1600,
-                "height": 1600
-              }
-            }
-          }
-        ],
-        "Featured": "https://payhip.com/b/pTdr1",
-        "Access Link": {
-          "state": "generated",
-          "value": "https://payhip.com/b/pTdr1",
-          "isStale": true
-        },
-        "Description": "Built for makers, print-on-demand, and digital sellers. Real product variant swatches, $0/month hosting.\n"
-      }
-    },
-    {
-      "id": "recc0T5rtL5AKwasV",
-      "createdTime": "2026-09-27T16:11:08.000Z",
-      "fields": {
-        "Resource Name": "Local Service Website template",
-        "Category": "Premium Guide",
-        "Status": [
-          "Published"
-        ],
-        "Cover Image": [
-          {
-            "id": "att7AhsBrEkXyAjIM",
-            "width": 1600,
-            "height": 1600,
-            "url": "data/images/att7AhsBrEkXyAjIM.png",
-            "filename": "Local-Service-Cover.png",
-            "size": 68064,
-            "type": "image/png",
-            "thumbnails": {
-              "small": {
-                "url": "data/images/att7AhsBrEkXyAjIM.png",
-                "width": 36,
-                "height": 36
-              },
-              "large": {
-                "url": "data/images/att7AhsBrEkXyAjIM.png",
-                "width": 512,
-                "height": 512
-              },
-              "full": {
-                "url": "data/images/att7AhsBrEkXyAjIM.png",
-                "width": 1600,
-                "height": 1600
-              }
-            }
-          }
-        ],
-        "Featured": "https://payhip.com/b/47lGw",
-        "Access Link": {
-          "state": "generated",
-          "value": "https://payhip.com/b/47lGw",
-          "isStale": true
-        },
-        "Description": "A professional, mobile-ready website for contractors and home-service pros \u2014 services and reviews update themselves from Airtable, free hosting, no monthly fees, and no code to touch day to day.\n"
       }
     },
     {
