@@ -136,52 +136,6 @@
         },
         "Description": "This 10-minute, step-by-step guide walks you through setting up a completely free Payhip account and getting a real, working checkout link \u2014 no coding, no monthly fee.\n"
       }
-    },
-    {
-      "id": "recdjO7YGF9uCzjgy",
-      "createdTime": "2026-08-29T00:34:16.000Z",
-      "fields": {
-        "Resource Name": "Starter Website Template",
-        "Category": "Premium Guide",
-        "Status": [
-          "Published"
-        ],
-        "Cover Image": [
-          {
-            "id": "attcUJakhisp84ADV",
-            "width": 2560,
-            "height": 1440,
-            "url": "data/images/attcUJakhisp84ADV.png",
-            "filename": "payhip-cover-image (1).png",
-            "size": 1278710,
-            "type": "image/png",
-            "thumbnails": {
-              "small": {
-                "url": "data/images/attcUJakhisp84ADV.png",
-                "width": 64,
-                "height": 36
-              },
-              "large": {
-                "url": "data/images/attcUJakhisp84ADV.png",
-                "width": 910,
-                "height": 512
-              },
-              "full": {
-                "url": "data/images/attcUJakhisp84ADV.png",
-                "width": 2560,
-                "height": 1440
-              }
-            }
-          }
-        ],
-        "Featured": "https://payhip.com/b/etNcM",
-        "Access Link": {
-          "state": "generated",
-          "value": "https://payhip.com/b/etNcM",
-          "isStale": false
-        },
-        "Description": "Own your website. Pay once. No monthly fees, ever. A ready-to-launch template for creators and small businesses.\n"
-      }
     }
   ]
 }
