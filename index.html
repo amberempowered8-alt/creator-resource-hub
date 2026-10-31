@@ -746,6 +746,13 @@
         .plans-btn:hover { transform: translateY(-1px); }
         .plans-foot { font-size: 13px; color: var(--text-muted); margin-top: 20px; }
         .plans-foot a { color: var(--accent-cyber); }
+        .plans-more { max-width: 820px; margin: 36px auto 0; padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 16px; text-align: center; }
+        .plans-more-text { font-size: 18px; line-height: 1.6; color: #cbd5e1; margin: 0 0 22px; }
+        .plans-more-text strong { color: #ffffff; }
+        .plans-more-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+        .plans-more-btn { display: inline-block; text-decoration: none; text-align: center; padding: 15px 28px; border-radius: 10px; font-weight: 700; font-size: 16px; border: 2px solid transparent; color: #08090d; background: linear-gradient(135deg, #45f3ff 0%, #1fc7d6 100%); box-shadow: 0 4px 15px rgba(69, 243, 255, 0.25); }
+        .plans-more-btn.ghost { background: transparent; color: #45f3ff; border: 2px solid #45f3ff; box-shadow: none; }
+        .plans-more-btn:hover { transform: translateY(-1px); }
     </style>
     <section class="plans-section" id="plans">
         <span class="architecture-tag">// Website Plans</span>
@@ -783,7 +790,13 @@
                 </tbody>
             </table>
         </div>
-        <p class="plans-foot">Start with DIY and want help later? Upgrade to Done For You within 45 days and pay $390 instead of $497. Request it through our <a href="https://airtable.com/app2dNCzkf61VdNKa/shrKN8thfLegxZSYL" target="_blank" rel="noopener noreferrer">Support Hub</a>. <a href="services.html">See full details, add-ons and care plans</a>.</p>
+        <div class="plans-more">
+            <p class="plans-more-text">Start with DIY and want help later? Upgrade to Done For You within 45 days and pay <strong>$390</strong> instead of $497.</p>
+            <div class="plans-more-actions">
+                <a href="https://airtable.com/app2dNCzkf61VdNKa/shrKN8thfLegxZSYL" target="_blank" rel="noopener noreferrer" class="plans-more-btn ghost">Request the $390 upgrade</a>
+                <a href="services.html" class="plans-more-btn">See full details and add-ons</a>
+            </div>
+        </div>
     </section>
 
     <!-- REVIEWS: stays hidden until real reviews are added. To show it, add real cards below and delete the word hidden from the section tag. Only real reviews with permission. -->
