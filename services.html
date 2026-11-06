@@ -107,6 +107,20 @@
             font-weight: 600;
         }
         .holiday-banner[hidden] { display: none; }
+        .holiday-banner.ticker { overflow: hidden; padding: 12px 0; text-align: left; }
+        .ticker-track { display: flex; width: max-content; animation: ticker-scroll 38s linear infinite; }
+        .ticker-track:hover { animation-play-state: paused; }
+        .ticker-group { display: flex; flex-shrink: 0; align-items: center; gap: 44px; padding-right: 44px; white-space: nowrap; }
+        .ticker-group span + span::before { content: "\2022"; margin-right: 44px; color: var(--accent-neon); }
+        .holiday-banner a { color: var(--accent-cyber); }
+        @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @media (prefers-reduced-motion: reduce) {
+            .ticker-track { animation: none; width: auto; justify-content: center; }
+            .ticker-group { flex-wrap: wrap; justify-content: center; white-space: normal; gap: 10px 28px; padding: 0 16px; }
+            .ticker-dup { display: none; }
+            .ticker-group span + span::before { display: none; }
+        }
+
 
         .hero { padding: 150px 20px 50px; text-align: center; }
         .hero-inner { max-width: 820px; margin: 0 auto; }
@@ -351,9 +365,22 @@
         </div>
 
         <section style="padding-top: 20px;">
-            <!-- HOLIDAY BANNER: to turn on, delete the word hidden from the next line and edit the words. -->
-            <div class="holiday-banner" hidden>
-                Holiday special: $100 off Done For You (DFY) for the first 3 buyers. Ends [date]. Use code [CODE] at checkout.
+            <!-- HOLIDAY BANNER (live): to turn it off, add the word hidden after ticker in the next line. -->
+            <div class="holiday-banner ticker" role="region" aria-label="Thanksgiving sale">
+                <div class="ticker-track">
+                <div class="ticker-group">
+                    <span><strong>THANKSGIVING SALE</strong></span>
+                    <span>$50 off Do It Yourself (DIY) with code THANKFUL50</span>
+                    <span>$100 off Done For You (DFY) with code THANKFUL100</span>
+                    <span>Ends Sunday, Nov 29 at 11:59 PM</span>
+                </div>
+                <div class="ticker-group ticker-dup" aria-hidden="true">
+                    <span><strong>THANKSGIVING SALE</strong></span>
+                    <span>$50 off Do It Yourself (DIY) with code THANKFUL50</span>
+                    <span>$100 off Done For You (DFY) with code THANKFUL100</span>
+                    <span>Ends Sunday, Nov 29 at 11:59 PM</span>
+                </div>
+                </div>
             </div>
 
             <div class="wrap">
