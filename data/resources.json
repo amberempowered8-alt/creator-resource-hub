@@ -47,52 +47,6 @@
       }
     },
     {
-      "id": "recJdKmkqogZw2oVo",
-      "createdTime": "2026-08-29T00:34:16.000Z",
-      "fields": {
-        "Resource Name": "Free Guide: 10 Digital Businesses Under $100",
-        "Category": "Freebie",
-        "Status": [
-          "Published"
-        ],
-        "Cover Image": [
-          {
-            "id": "attqX2mI6FIPvvK6r",
-            "width": 2560,
-            "height": 1440,
-            "url": "data/images/attqX2mI6FIPvvK6r.png",
-            "filename": "freebie-cover-pdf.png",
-            "size": 1142854,
-            "type": "image/png",
-            "thumbnails": {
-              "small": {
-                "url": "data/images/attqX2mI6FIPvvK6r.png",
-                "width": 64,
-                "height": 36
-              },
-              "large": {
-                "url": "data/images/attqX2mI6FIPvvK6r.png",
-                "width": 910,
-                "height": 512
-              },
-              "full": {
-                "url": "data/images/attqX2mI6FIPvvK6r.png",
-                "width": 2560,
-                "height": 1440
-              }
-            }
-          }
-        ],
-        "Featured": "https://payhip.com/b/9dcpO",
-        "Access Link": {
-          "state": "generated",
-          "value": "https://payhip.com/b/9dcpO",
-          "isStale": true
-        },
-        "Description": "10 real digital business ideas with real starting costs, plus a bonus slide deck. Completely free.\n"
-      }
-    },
-    {
       "id": "recKq2tiAV2uy4Yu4",
       "createdTime": "2026-09-15T20:16:15.000Z",
       "fields": {
