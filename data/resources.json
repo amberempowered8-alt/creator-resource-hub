@@ -103,26 +103,26 @@
         ],
         "Cover Image": [
           {
-            "id": "attGPV4iKqZeiWBa5",
+            "id": "attO8ZlUMKxSYjtFW",
             "width": 1080,
             "height": 1920,
-            "url": "data/images/attGPV4iKqZeiWBa5.png",
-            "filename": "arizona-cottage-food-checklist-cover.png",
-            "size": 252202,
+            "url": "data/images/attO8ZlUMKxSYjtFW.png",
+            "filename": "arizona-cottage-food-checklist-cover-2.png",
+            "size": 283486,
             "type": "image/png",
             "thumbnails": {
               "small": {
-                "url": "data/images/attGPV4iKqZeiWBa5.png",
+                "url": "data/images/attO8ZlUMKxSYjtFW.png",
                 "width": 20,
                 "height": 36
               },
               "large": {
-                "url": "data/images/attGPV4iKqZeiWBa5.png",
+                "url": "data/images/attO8ZlUMKxSYjtFW.png",
                 "width": 512,
                 "height": 910
               },
               "full": {
-                "url": "data/images/attGPV4iKqZeiWBa5.png",
+                "url": "data/images/attO8ZlUMKxSYjtFW.png",
                 "width": 1080,
                 "height": 1920
               }
@@ -133,7 +133,7 @@
         "Access Link": {
           "state": "generated",
           "value": "https://payhip.com/b/PjKCT",
-          "isStale": false
+          "isStale": true
         },
         "Description": "Thinking about selling baked goods from home in Arizona? This free one-page checklist walks you through food handler training, state registration, what your labels and online listings must include, and which foods are not allowed. Plain English, free download. For information only, not legal advice.\n"
       }
